@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HANAMI HAVEN — Scroll Animation</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:
+    linear-gradient(rgba(7,5,25,0.72),rgba(7,5,25,0.90)),
+    url('background.png');
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+    color:white;
+    overflow-x:hidden;
+}
+
+/* GLOW */
+
+body::before{
+
+    content:'';
+
+    position:fixed;
+    inset:0;
+
+    background:
+    radial-gradient(circle at top left,#ff5fd833,transparent 25%),
+    radial-gradient(circle at bottom right,#9d4edd33,transparent 25%);
+
+    animation:bgGlow 8s ease-in-out infinite alternate;
+
+    z-index:-3;
+}
+
+@keyframes bgGlow{
+
+    0%{
+        opacity:0.7;
+        transform:scale(1);
+    }
+
+    100%{
+        opacity:1;
+        transform:scale(1.04);
+    }
+
+}
+
+/* STARS */
+
+.stars{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+}
+
+.star{
+
+    position:absolute;
+
+    width:3px;
+    height:3px;
+
+    background:white;
+
+    border-radius:50%;
+
+    opacity:0.7;
+
+    animation:twinkle 3s infinite ease-in-out;
+}
+
+.star:nth-child(1){top:10%;left:15%;animation-delay:0s;}
+.star:nth-child(2){top:20%;left:40%;animation-delay:1s;}
+.star:nth-child(3){top:30%;left:70%;animation-delay:2s;}
+.star:nth-child(4){top:50%;left:25%;animation-delay:1.5s;}
+.star:nth-child(5){top:65%;left:80%;animation-delay:0.5s;}
+.star:nth-child(6){top:75%;left:50%;animation-delay:2.5s;}
+.star:nth-child(7){top:15%;left:85%;animation-delay:1.2s;}
+.star:nth-child(8){top:90%;left:10%;animation-delay:2s;}
+
+@keyframes twinkle{
+
+    0%{
+        opacity:0.2;
+        transform:scale(1);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.8);
+    }
+
+    100%{
+        opacity:0.2;
+        transform:scale(1);
+    }
+
+}
+
+/* CLOUDS */
+
+.cloud{
+
+    position:fixed;
+
+    width:320px;
+
+    opacity:0.10;
+
+    z-index:-1;
+
+    animation:cloudMove linear infinite;
+}
+
+.cloud1{
+    top:100px;
+    left:-400px;
+    animation-duration:55s;
+}
+
+.cloud2{
+    top:500px;
+    left:-500px;
+    animation-duration:70s;
+}
+
+.cloud3{
+    top:900px;
+    left:-450px;
+    animation-duration:60s;
+}
+
+@keyframes cloudMove{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    100%{
+        transform:translateX(2400px);
+    }
+
+}
+
+/* PETALS */
+
+.petal{
+
+    position:fixed;
+
+    width:18px;
+    height:18px;
+
+    background:#ff82e6;
+
+    border-radius:70% 0 70% 0;
+
+    opacity:0.35;
+
+    z-index:-1;
+
+    animation:fall linear infinite;
+}
+
+.petal:nth-child(1){
+    left:10%;
+    animation-duration:14s;
+}
+
+.petal:nth-child(2){
+    left:30%;
+    animation-duration:20s;
+}
+
+.petal:nth-child(3){
+    left:55%;
+    animation-duration:16s;
+}
+
+.petal:nth-child(4){
+    left:75%;
+    animation-duration:22s;
+}
+
+.petal:nth-child(5){
+    left:90%;
+    animation-duration:18s;
+}
+
+@keyframes fall{
+
+    0%{
+        transform:
+        translateY(-50px)
+        rotate(0deg);
+    }
+
+    100%{
+        transform:
+        translateY(120vh)
+        rotate(360deg);
+    }
+
+}
+
+/* NAVBAR */
+
+nav{
+
+    width:100%;
+    padding:22px 7%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    position:fixed;
+    top:0;
+    z-index:999;
+
+    backdrop-filter:blur(12px);
+
+    background:rgba(0,0,0,0.18);
+
+    border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.logo{
+    display:flex;
+    flex-direction:column;
+}
+
+.logo h1{
+
+    font-size:34px;
+
+    color:#ffa0d4;
+
+    font-weight:800;
+
+    text-shadow:
+    0 0 15px #ffa0d4;
+}
+
+.logo span{
+
+    color:#ffb4f0;
+
+    font-size:14px;
+
+    letter-spacing:2px;
+}
+
+nav ul{
+
+    display:flex;
+    gap:35px;
+
+    list-style:none;
+}
+
+nav a{
+
+    text-decoration:none;
+
+    color:white;
+
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ffa0d4;
+}
+
+.nav-btn{
+
+    padding:14px 28px;
+
+    border-radius:50px;
+
+    background:linear-gradient(135deg,#ffa0d4,#9d4edd);
+
+    text-decoration:none;
+
+    color:white;
+
+    box-shadow:
+    0 0 20px #ffa0d466,
+    0 0 40px #9d4edd33;
+
+    transition:0.3s;
+}
+
+.nav-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 0 30px #ffa0d4,
+    0 0 60px #9d4edd66;
+}
+
+/* SECTIONS */
+
+section{
+    padding:120px 7%;
+}
+
+.container{
+    max-width:1450px;
+    margin:auto;
+}
+
+/* ========= SCROLL ANIMATION SYSTEM (FADE IN & OUT) ========= */
+
+/* base hidden state for animated sections (will fade in on scroll) */
+.fade-scroll {
+    opacity: 0;
+    transform: translateY(38px);
+    transition: opacity 0.9s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+/* visible state — when element enters viewport */
+.fade-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* optional small stagger for children inside containers? not needed but adds polish */
+.glass, .staff-card, .event-card, .gallery-item, .about, .contact {
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+/* subtle extra effect for hero specific? we apply separately, but consistent. */
+.hero-left, .hero-right {
+    transition-delay: 0.05s;
+}
+
+/* HERO */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:60px;
+    flex-wrap:wrap;
+}
+
+.hero-left{
+    flex:1;
+    min-width:320px;
+}
+
+.hero-left h3{
+
+    font-size:42px;
+
+    color:#ff9de8;
+
+    margin-bottom:12px;
+
+    font-family:cursive;
+}
+
+.hero-left h1{
+
+    font-size:120px;
+
+    line-height:0.92;
+
+    margin-bottom:25px;
+
+    font-weight:800;
+}
+
+.hero-left h1 span{
+
+    color:#ffa0d4;
+
+    text-shadow:
+    0 0 20px #ffa0d4,
+    0 0 45px #ffa0d455;
+}
+
+.jp{
+
+    display:inline-block;
+
+    padding:12px 26px;
+
+    border-radius:50px;
+
+    background:rgba(255,255,255,0.05);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    margin-bottom:28px;
+
+    color:#ffd6ff;
+}
+
+.hero-left p{
+
+    color:#e2e2e2;
+
+    line-height:2;
+
+    font-size:20px;
+
+    max-width:650px;
+}
+
+.hero-buttons{
+
+    margin-top:40px;
+
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+
+    padding:16px 34px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    color:white;
+
+    font-weight:600;
+
+    transition:0.3s;
+}
+
+.primary{
+
+    background:linear-gradient(135deg,#ffa0d4,#9d4edd);
+
+    box-shadow:
+    0 0 20px #ffa0d466,
+    0 0 40px #9d4edd33;
+}
+
+.secondary{
+
+    background:rgba(255,255,255,0.05);
+
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+/* HERO IMAGE */
+
+.hero-right{
+    flex:1;
+    min-width:320px;
+
+    display:flex;
+    justify-content:center;
+}
+
+.hero-image{
+
+    width:100%;
+    max-width:760px;
+
+    border-radius:40px;
+
+    box-shadow:
+    0 0 50px rgba(255,120,222,0.18);
+
+    animation:floatImage 6s ease-in-out infinite;
+}
+
+@keyframes floatImage{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+/* GLASS */
+
+.glass{
+
+    background: rgba(255,255,255,0.14);
+
+    border: 1px solid rgba(255,255,255,0.20);
+
+    backdrop-filter: blur(18px);
+
+    border-radius: 40px;
+
+    transition: 0.3s;
+
+    box-shadow:
+    0 0 20px rgba(255,255,255,0.06);
+}
+
+.glass:hover{
+
+    transform:
+    translateY(-8px)
+    scale(1.01);
+}
+
+/* TITLES */
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:70px;
+}
+
+.section-title h2{
+
+    font-size:68px;
+
+    color:#ffa0d4;
+
+    text-shadow:
+    0 0 15px #ffa0d455;
+}
+
+.section-title p{
+
+    margin-top:15px;
+
+    color:#ddd;
+
+    font-size:18px;
+}
+
+/* ABOUT */
+
+.about{
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    gap:45px;
+
+    align-items:center;
+
+    padding:45px;
+}
+
+.about img{
+
+    width:100%;
+
+    border-radius:28px;
+}
+
+.about-content h2{
+
+    font-size:56px;
+
+    margin-bottom:20px;
+}
+
+.about-content span{
+    color:#ffa0d4;
+}
+
+.about-content p{
+
+    line-height:2;
+
+    color:#e0e0e0;
+
+    font-size:18px;
+}
+
+.features{
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+    margin-top:35px;
+}
+
+.feature{
+
+    background: rgba(255,255,255,0.08);
+
+    padding:22px;
+
+    border-radius:25px;
+
+    text-align:center;
+}
+
+.feature h4{
+
+    margin-top:12px;
+
+    color:#ffa0d4;
+}
+
+/* STAFF GRID */
+
+.staff-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4, 1fr);
+
+    gap:30px;
+
+    margin-top:50px;
+
+    align-items:stretch;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1200px){
+
+    .staff-grid{
+        grid-template-columns:
+        repeat(3,1fr);
+    }
+
+}
+
+@media(max-width:900px){
+
+    .staff-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    .staff-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+/* STAFF CARD */
+
+.staff-card{
+
+    width:100%;
+
+    padding:35px 25px;
+
+    text-align:center;
+
+    min-height:420px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-start;
+
+    align-items:center;
+
+    transition:0.4s;
+}
+
+.staff-card:hover{
+
+    transform:
+    translateY(-10px)
+    scale(1.02);
+
+    box-shadow:
+    0 0 25px rgba(255,255,255,0.10);
+}
+
+/* PROFILE IMAGE */
+
+.staff-card img{
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:4px solid rgba(255,255,255,0.25);
+
+    margin-bottom:20px;
+
+    box-shadow:
+    0 0 15px rgba(255,255,255,0.10);
+}
+
+/* NAME */
+
+.staff-card h3{
+
+    font-size:32px;
+
+    margin-top:14px;
+    margin-bottom:14px;
+
+    color:white;
+}
+
+/* DESCRIPTION */
+
+.staff-card p{
+
+    line-height:1.8;
+
+    color:#dcdcdc;
+
+    font-size:15px;
+
+    max-width:240px;
+}
+
+/* ROLE TAG */
+
+.role{
+
+    padding:10px 18px;
+
+    border-radius:50px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    margin-bottom:12px;
+}
+
+/* EXECUTIVE */
+
+.executive{
+
+    background:
+    linear-gradient(135deg,#ff4fd822,#ffa0d422);
+
+    color:#ff8ce9;
+
+    border:1px solid #ffa0d444;
+}
+
+/* MANAGING */
+
+.managing{
+
+    background:
+    linear-gradient(135deg,#9d4edd22,#c992ff22);
+
+    color:#d7a7ff;
+
+    border:1px solid #c992ff44;
+}
+
+/* SENIOR */
+
+.senior{
+
+    background:
+    linear-gradient(135deg,#5ec8ff22,#7ddcff22);
+
+    color:#8ee3ff;
+
+    border:1px solid #7ddcff44;
+}
+
+/* MANAGEMENT */
+
+.management{
+
+    background:
+    linear-gradient(135deg,#ffffff12,#ffffff08);
+
+    color:#ffffff;
+
+    border:1px solid rgba(255,255,255,0.10);
+}
+
+/* EVENTS */
+
+.event-grid{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+}
+
+.event-card img{
+
+    width:100%;
+    height:240px;
+
+    object-fit:cover;
+}
+
+.event-content{
+    padding:30px;
+}
+
+.event-content h3{
+
+    color:#ffa0d4;
+
+    font-size:32px;
+
+    margin-bottom:14px;
+}
+
+.event-content p{
+
+    color:#d8d8d8;
+
+    line-height:1.9;
+}
+
+/* GALLERY */
+
+.gallery-grid{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:22px;
+}
+
+.gallery-item{
+
+    overflow:hidden;
+
+    border-radius:28px;
+
+    height:320px;
+}
+
+.gallery-item img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:0.5s;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.08);
+}
+
+/* CONTACT */
+
+.contact{
+
+    padding:70px;
+
+    text-align:center;
+}
+
+.contact h2{
+
+    font-size:72px;
+
+    color:#ffa0d4;
+
+    margin-bottom:20px;
+}
+
+.contact p{
+
+    max-width:750px;
+
+    margin:auto;
+
+    line-height:2;
+
+    color:#ddd;
+
+    font-size:18px;
+}
+
+.socials{
+
+    margin-top:35px;
+
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+.socials a{
+
+    width:60px;
+    height:60px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,0.06);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-decoration:none;
+
+    color:white;
+
+    font-size:22px;
+
+    transition:0.3s;
+}
+
+.socials a:hover{
+
+    background:#ffa0d4;
+
+    transform:translateY(-5px);
+}
+
+/* FOOTER */
+
+footer{
+
+    padding:45px;
+
+    text-align:center;
+
+    color:#aaa;
+
+    border-top:1px solid rgba(255,255,255,0.05);
+
+    margin-top:70px;
+}
+
+/* MOBILE */
+
+@media(max-width:950px){
+
+    nav{
+        flex-direction:column;
+        gap:18px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .hero-left h1{
+        font-size:70px;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .section-title h2{
+        font-size:45px;
+    }
+
+    .contact h2{
+        font-size:45px;
+    }
+
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- STARS -->
+
+<div class="stars">
+
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+
+</div>
+
+<!-- CLOUDS -->
+
+<img class="cloud cloud1" src="https://cdn-icons-png.flaticon.com/512/414/414927.png" alt="cloud">
+<img class="cloud cloud2" src="https://cdn-icons-png.flaticon.com/512/414/414927.png" alt="cloud">
+<img class="cloud cloud3" src="https://cdn-icons-png.flaticon.com/512/414/414927.png" alt="cloud">
+
+<!-- PETALS -->
+
+<div class="petal"></div>
+<div class="petal"></div>
+<div class="petal"></div>
+<div class="petal"></div>
+<div class="petal"></div>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">
+<h1>💮 HANAMI HAVEN</h1>
+<span>MALLU COMMUNITY</span>
+</div>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#staff">Staff</a></li>
+<li><a href="#events">Events</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+<a href="https://discord.com/invite/ck6hEuQuCq" class="btn primary" target="_blank">
+  Join Discord
+</a>
+
+</nav>
+
+<!-- HERO section (hero block itself also animated but we use generic) -->
+
+<section id="home">
+
+<div class="container hero">
+
+<div class="hero-left fade-scroll">
+
+<h3>Welcome to</h3>
+
+<h1>
+HANAMI<br>
+<span>HAVEN</span>
+</h1>
+
+<div class="jp">
+💮 Hคηค๓ī Hคⅴєη 💮 
+</div>
+
+<p>
+A peaceful Mallu community filled with
+chill vibes, music, gaming, anime and
+unlimited friendship.
+</p>
+
+<div class="hero-buttons">
+
+<a 
+href="https://discord.gg/ck6hEuQuCq"
+target="_blank"
+class="btn primary"
+>
+Join Our Community
+</a>
+
+<a href="#about" class="btn secondary">
+Explore More
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-right fade-scroll">
+
+<img
+class="hero-image"
+src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/mainbackground.webp"
+alt="community visual"
+>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT section (with fade-scroll class) -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="glass about fade-scroll">
+
+<img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/aboutbackground.png" alt="aesthetic scenery">
+
+<div class="about-content">
+
+<h2>
+About <span>HANAMI HAVEN</span>
+</h2>
+
+<p>
+We are a cozy Malayalam community
+where you can be yourself,
+make new friends,
+enjoy late-night voice chats,
+play games,
+listen to music
+and share beautiful moments together.
+</p>
+
+<div class="features">
+
+<div class="feature">
+💞
+<h4>Friendly Community</h4>
+</div>
+
+<div class="feature">
+🎵
+<h4>Music & Chill</h4>
+</div>
+
+<div class="feature">
+🎮
+<h4>Gaming & Events</h4>
+</div>
+
+<div class="feature">
+✨
+<h4>Anime & Aesthetic</h4>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- STAFF section (grid items individually animate, but parent title also) -->
+
+<section id="staff">
+
+<div class="container">
+
+<div class="section-title fade-scroll">
+
+<h2>Our Staff</h2>
+
+<p>
+The amazing people who keep Hanami HAVEN alive and peaceful.
+</p>
+
+</div>
+
+<!-- FIXED GRID (each staff card will get fade-scroll and fade individually) -->
+
+<div class="staff-grid">
+
+<!-- EXECUTIVE DIRECTOR -->
+
+<div class="glass staff-card fade-scroll">
+
+<img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/s1.webp" alt="staff avatar">
+
+<div class="role executive">
+EXECUTIVE DIRECTOR
+</div>
+
+<h3>SAHADDD</h3>
+
+<p>
+Leads HANAMI HAVEN
+and manages overall community vision.
+</p>
+
+</div>
+
+<div class="glass staff-card fade-scroll">
+
+<img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/og1.webp" alt="staff avatar">
+
+<div class="role executive">
+EXECUTIVE DIRECTOR
+</div>
+
+<h3>𝐎𝐆 𝐏𝐎𝐎𝐂𝐇𝐀୨ৎ</h3>
+
+<p>
+Oversees server development,
+planning,
+and community direction.
+</p>
+
+</div>
+
+<!-- MANAGING DIRECTOR -->
+
+<div class="glass staff-card fade-scroll">
+
+<img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/md1.webp" alt="staff avatar">
+
+<div class="role managing">
+MANAGING DIRECTOR
+</div>
+
+<h3>🌿Akira 🎋</h3>
+
+<p>
+Handles systems,
+management,
+and server operations.
+</p>
+
+</div>
+
+<div class="glass staff-card fade-scroll">
+
+<img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/md2.webp" alt="staff avatar">
+
+<div class="role managing">
+MANAGING DIRECTOR
+</div>
+
+<h3>✦𝙰ℓεх✦</h3>
+
+<p>
+Coordinates events,
+activities,
+and staff management.
+</p>
+
+</div>
+
+<!-- SENIOR MANAGEMENT -->
+
+<div class="glass staff-card fade-scroll">
+
+<img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/sm1.webp" alt="staff avatar">
+
+<div class="role senior">
+SENIOR MANAGEMENT
+</div>
+
+<h3>BlackOp</h3>
+
+<p>
+Maintains community peace
+and supervises moderation teams.
+</p>
+
+</div>
+
+<!-- MANAGEMENT -->
+
+<div class="glass staff-card fade-scroll">
+
+<img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m1.webp" alt="staff avatar">
+
+<div class="role management">
+MANAGEMENT
+</div>
+
+<h3>CruZ™</h3>
+
+<p>
+Supports members
+and helps manage community activities.
+</p>
+
+</div>
+
+<div class="glass staff-card fade-scroll">
+
+<img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m2.webp" alt="staff avatar">
+
+<div class="role management">
+MANAGEMENT
+</div>
+
+<h3>Dr.Luttappi</h3>
+
+<p>
+Keeps chats active
+and assists with member support.
+</p>
+
+</div>
+
+<div class="glass staff-card fade-scroll">
+
+<img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m3.webp" alt="staff avatar">
+
+<div class="role management">
+MANAGEMENT
+</div>
+
+<h3>godwin3159</h3>
+
+<p>
+Organizes events
+and community entertainment.
+</p>
+
+</div>
+
+<div class="glass staff-card fade-scroll">
+
+<img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m4.webp" alt="staff avatar">
+
+<div class="role management">
+MANAGEMENT
+</div>
+
+<h3>KochuKuttan 🌙</h3>
+
+<p>
+Helps maintain peaceful
+and positive community vibes.
+</p>
+
+</div>
+
+<div class="glass staff-card fade-scroll">
+
+<img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m5.webp" alt="staff avatar">
+
+<div class="role management">
+MANAGEMENT
+</div>
+
+<h3>Neethu Kutty</h3>
+
+<p>
+Assists with moderation
+and member interaction.
+</p>
+
+</div>
+
+<div class="glass staff-card fade-scroll">
+
+<img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m6.webp" alt="staff avatar">
+
+<div class="role management">
+MANAGEMENT
+</div>
+
+<h3>𝐒𝐮𝐫𝐚 𝐩𝐨𝐨𝐜𝐡𝐚</h3>
+
+<p>
+Supports community growth
+and daily activities.
+</p>
+
+</div>
+
+<div class="glass staff-card fade-scroll">
+
+<img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m7.webp" alt="staff avatar">
+
+<div class="role management">
+MANAGEMENT
+</div>
+
+<h3>Thakkudu</h3>
+
+<p>
+Helps create a friendly
+and welcoming atmosphere.
+</p>
+
+</div>
+
+<div class="glass staff-card fade-scroll">
+
+<img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m8.webp" alt="staff avatar">
+
+<div class="role management">
+MANAGEMENT
+</div>
+
+<h3>Voltriczzz ⚕</h3>
+
+<p>
+Assists with server activities
+and community engagement.
+</p>
+
+</div>
+
+<div class="glass staff-card fade-scroll">
+
+<img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m9.webp" alt="staff avatar">
+
+<div class="role management">
+Security & Moderation
+</div>
+
+<h3>EclipsedSoul</h3>
+
+<p>
+Helps members,
+events,
+and community support systems.
+</p>
+
+</div>
+
+<div class="glass staff-card fade-scroll">
+
+<img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m10.webp" alt="staff avatar">
+
+<div class="role management">
+Security & Moderation
+</div>
+
+<h3>VΛLHΛLLΛ-X</h3>
+
+<p>
+Helps members,
+events,
+and community support systems.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- EVENTS -->
+
+<section id="events">
+
+<div class="container">
+
+<div class="section-title fade-scroll">
+
+<h2>Upcoming Events</h2>
+
+<p>
+Join our fun events and make unforgettable memories!
+</p>
+
+</div>
+
+<div class="event-grid">
+
+<div class="glass event-card fade-scroll">
+
+<img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/upe.jpg" alt="gaming event">
+
+<div class="event-content">
+
+<h3>Will Be Update Soon...</h3>
+
+<p>
+Will Be Update Soon...
+</p>
+
+</div>
+
+</div>
+
+<div class="glass event-card fade-scroll">
+
+<img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/upe.jpg" alt="music vc">
+
+<div class="event-content">
+
+<h3>Will Be Update Soon...</h3>
+
+<p>
+Will Be Update Soon...
+</p>
+
+</div>
+
+</div>
+
+<div class="glass event-card fade-scroll">
+
+<img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/upe.jpg" alt="anime watch party">
+
+<div class="event-content">
+
+<h3>Will Be Update Soon...</h3>
+
+<p>
+Will Be Update Soon...
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TOP MEMBERS -->
+
+<section id="top-members">
+
+<div class="container">
+
+<div class="section-title fade-scroll">
+
+<h2>TOP MEMBERS</h2>
+
+<p>
+Meet the top 4 members of our community.
+</p>
+
+</div>
+
+<div class="gallery-grid">
+
+<!-- MEMBER 1 -->
+<div class="gallery-item glass fade-scroll">
+
+<img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/t1.webp" alt="Top Member 1">
+
+<div class="member-info">
+
+<h3>SAM</h3>
+
+</div>
+
+</div>
+
+<!-- MEMBER 2 -->
+<div class="gallery-item glass fade-scroll">
+
+<img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/t2.webp" alt="Top Member 2">
+
+<div class="member-info">
+
+<h3>leclerc</h3>
+
+</div>
+
+</div>
+
+<!-- MEMBER 3 -->
+<div class="gallery-item glass fade-scroll">
+
+<img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/t3.webp" alt="Top Member 3">
+
+<div class="member-info">
+
+<h3>not Leclerc</h3>
+
+</div>
+
+</div>
+
+<!-- MEMBER 4 -->
+<div class="gallery-item glass fade-scroll">
+
+<img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/t4.webp" alt="Top Member 4">
+
+<div class="member-info">
+
+<h3>Snow</h3>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="glass contact fade-scroll">
+
+<h2>
+Ready to be part of our Hanami Family?
+</h2>
+
+<p>
+Join now and let's create beautiful memories together. 🌸
+</p>
+
+<br>
+
+<a href="https://discord.com/invite/ck6hEuQuCq" class="btn primary" target="_blank">
+    Join Discord Server
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<footer class="fade-scroll">
+© 2026 HANAMI HAVEN • Made with 💖 for our community
+</footer>
+
+<!-- SCROLL ANIMATION SCRIPT: fade in & out using Intersection Observer -->
+<script>
+    (function() {
+        // select all elements that should animate on scroll
+        const animatedElements = document.querySelectorAll('.fade-scroll');
+        
+        if (animatedElements.length === 0) return;
+        
+        // configuration for intersection observer: element appears when 20% visible, disappears when less than 15% (so it fades out when scrolling away)
+        const observerOptions = {
+            threshold: 0.2,       // trigger when 20% of element is visible (fade in)
+            rootMargin: "0px 0px -10px 0px"  // slight negative margin to make exit smoother
+        };
+        
+        // we also want a secondary observer config for fading out? actually we toggle class based on isIntersecting
+        // But to make it fade-out smoothly when leaving viewport, we rely on threshold: when below threshold, class removed -> opacity back to 0.
+        // To have better "fade-out" feeling, we can also add a threshold for fading OUT at 0.15, but using the same threshold works fine.
+        // But we adjust with second threshold? we can apply two-phase but simpler: remove class when not intersecting.
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // when element enters viewport -> add visible class (fade in)
+                    entry.target.classList.add('visible');
+                } else {
+                    // when element leaves viewport -> remove visible class (fade out)
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, observerOptions);
+        
+        animatedElements.forEach(el => {
+            // initial state: hide, observer will add visible when needed
+            // but we also want to trigger visible if already in viewport on page load
+            observer.observe(el);
+        });
+        
+        // small additional check: run once after load to make sure elements already in view get class
+        // use setTimeout to ensure everything is painted
+        window.addEventListener('load', () => {
+            animatedElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                // if more than 20% visible at start, manually add visible class
+                const visiblePart = Math.min(1, (Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0)) / rect.height);
+                if (visiblePart > 0.2 && rect.top < windowHeight && rect.bottom > 0) {
+                    el.classList.add('visible');
+                }
+            });
+        });
+        
+        // also handle potential scroll after dynamic resize
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    // observer handles automatically, no need extra, but for safety for manually visible class
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+        
+        // added style to ensure hidden elements are not visible before animation
+        // style already defined in CSS: .fade-scroll opacity:0, transform. visible overrides
+        // also set transition for smooth fade out
+        console.log("Scroll animations with fade-in & fade-out active ✨");
+    })();
+</script>
+
+</body>
+</html>
