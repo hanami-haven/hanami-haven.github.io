@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<title>HANAMI HAVEN — Contact Form with Discord Webhook</title>
+<title>HANAMI HAVEN — Left Nav with Hide/Show Button | Fully Responsive</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -121,7 +121,7 @@ body::before{
     100%{ transform:translateY(120vh) rotate(360deg);}
 }
 
-/* ========= LEFT SIDE NAVIGATION BAR ========= */
+/* ========= LEFT SIDE NAVIGATION BAR (REDUCED SIZE) ========= */
 .side-nav {
     position: fixed;
     left: 0;
@@ -138,6 +138,7 @@ body::before{
     transition: all 0.3s ease;
 }
 
+/* HIDDEN STATE FOR NAV BAR */
 .side-nav.hidden-nav {
     transform: translateX(-100%) translateY(-50%);
     opacity: 0;
@@ -162,17 +163,20 @@ body::before{
     transition: all 0.25s ease;
     padding: 0.35rem 0.45rem;
     border-radius: 18px;
+    position: relative;
 }
 
 .side-nav ul li a i {
     font-size: 1.2rem;
     margin-bottom: 0.2rem;
+    transition: 0.2s;
     color: #ffb8e0;
 }
 
 .side-nav ul li a span {
     font-size: 0.6rem;
     letter-spacing: 0.3px;
+    font-weight: 500;
 }
 
 .side-nav ul li a:hover {
@@ -181,12 +185,19 @@ body::before{
     background: rgba(255,160,212,0.15);
 }
 
+.side-nav ul li a:hover i {
+    color: #ffd0ff;
+    text-shadow: 0 0 8px #ffa0d4;
+}
+
+/* active link highlight */
 .side-nav ul li a.active {
     color: #ffc0e8;
     background: linear-gradient(90deg, rgba(255,160,212,0.3), transparent);
     border-left: 3px solid #ffa0d4;
 }
 
+/* HIDE/SHOW NAVIGATION BUTTON (Toggle Button) - REDUCED */
 .nav-toggle-btn {
     position: fixed;
     left: 20px;
@@ -199,17 +210,32 @@ body::before{
     padding: 8px 14px;
     cursor: pointer;
     color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: 0.2s;
+    box-shadow: 0 0 15px rgba(255,160,212,0.5);
     display: flex;
     align-items: center;
     gap: 6px;
-    transition: 0.2s;
+}
+
+.nav-toggle-btn i {
+    font-size: 1rem;
+}
+
+.nav-toggle-btn span {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .nav-toggle-btn:hover {
     transform: scale(1.05);
     background: linear-gradient(135deg, #ffb8e4, #b35ef0);
+    box-shadow: 0 0 25px #ffa0d4;
 }
 
+/* main content wrapper with left margin for side nav */
 .main-content {
     margin-left: 80px;
     transition: margin-left 0.3s ease;
@@ -219,14 +245,14 @@ body::before{
     margin-left: 20px;
 }
 
-section {
+/* SECTIONS & LAYOUT */
+section{
     padding: 100px 5% 100px 5%;
     scroll-margin-top: 30px;
 }
-
-.container {
+.container{
     max-width: 1450px;
-    margin: auto;
+    margin:auto;
 }
 
 /* SCROLL ANIMATION */
@@ -234,164 +260,159 @@ section {
     opacity: 0;
     transform: translateY(38px);
     transition: opacity 0.9s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.8s ease-out;
+    will-change: opacity, transform;
 }
-
 .fade-scroll.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* HERO */
-.hero {
+/* HERO SECTION */
+.hero{
     min-height: 90vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 60px;
-    flex-wrap: wrap;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:60px;
+    flex-wrap:wrap;
 }
-
-.hero-left { flex: 1; min-width: 300px; }
-.hero-left h3 { font-size: 42px; color: #ff9de8; margin-bottom: 12px; }
-.hero-left h1 { font-size: clamp(3rem, 10vw, 120px); line-height: 0.92; margin-bottom: 25px; font-weight: 800; }
-.hero-left h1 span { color: #ffa0d4; text-shadow: 0 0 20px #ffa0d4; }
-.jp {
-    display: inline-block; padding: 12px 26px; border-radius: 50px;
-    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
-    margin-bottom: 28px; color: #ffd6ff;
+.hero-left{ flex:1; min-width:300px; }
+.hero-left h3{ font-size:42px; color:#ff9de8; margin-bottom:12px; font-family:cursive; }
+.hero-left h1{ font-size: clamp(3rem, 10vw, 120px); line-height:0.92; margin-bottom:25px; font-weight:800; }
+.hero-left h1 span{ color:#ffa0d4; text-shadow:0 0 20px #ffa0d4, 0 0 45px #ffa0d455; }
+.jp{
+    display:inline-block; padding:12px 26px; border-radius:50px;
+    background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);
+    margin-bottom:28px; color:#ffd6ff;
 }
-.hero-left p { color: #e2e2e2; line-height: 2; font-size: clamp(1rem, 4vw, 1.2rem); max-width: 650px; }
-.hero-buttons { margin-top: 40px; display: flex; gap: 20px; flex-wrap: wrap; }
-
-.btn {
-    padding: 14px 32px;
-    border-radius: 50px;
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
-    transition: 0.3s;
-    display: inline-block;
-    text-align: center;
-    border: none;
-    cursor: pointer;
+.hero-left p{ color:#e2e2e2; line-height:2; font-size: clamp(1rem, 4vw, 1.2rem); max-width:650px; }
+.hero-buttons{ margin-top:40px; display:flex; gap:20px; flex-wrap:wrap; }
+.btn{
+    padding:14px 32px; border-radius:50px; text-decoration:none; color:white;
+    font-weight:600; transition:0.3s; display:inline-block; text-align:center;
 }
+.primary{ background:linear-gradient(135deg,#ffa0d4,#9d4edd); box-shadow:0 0 20px #ffa0d466; }
+.secondary{ background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); }
+.btn:hover{ transform:translateY(-5px); }
+.hero-right{ flex:1; min-width:280px; display:flex; justify-content:center; }
+.hero-image{ width:100%; max-width:650px; border-radius:40px; box-shadow:0 0 50px rgba(255,120,222,0.18); animation:floatImage 6s ease-in-out infinite; }
+@keyframes floatImage{ 0%{ transform:translateY(0px);} 50%{ transform:translateY(-12px);} 100%{ transform:translateY(0px);} }
 
-.primary { background: linear-gradient(135deg, #ffa0d4, #9d4edd); box-shadow: 0 0 20px #ffa0d466; }
-.secondary { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); }
-.btn:hover { transform: translateY(-5px); }
-
-.hero-right { flex: 1; display: flex; justify-content: center; }
-.hero-image { width: 100%; max-width: 650px; border-radius: 40px; animation: floatImage 6s ease-in-out infinite; }
-@keyframes floatImage { 0% { transform: translateY(0px); } 50% { transform: translateY(-12px); } 100% { transform: translateY(0px); } }
-
-/* GLASS */
-.glass {
+/* GLASS COMPONENT */
+.glass{
     background: rgba(255,255,255,0.12);
     border: 1px solid rgba(255,255,255,0.18);
     backdrop-filter: blur(16px);
     border-radius: 40px;
     transition: 0.3s;
 }
+.glass:hover{ transform:translateY(-6px) scale(1.01); }
 
-.section-title {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.section-title h2 {
-    font-size: clamp(2rem, 8vw, 68px);
-    color: #ffa0d4;
-    text-shadow: 0 0 15px #ffa0d455;
-}
-.section-title p { margin-top: 15px; color: #ddd; }
+/* SECTION TITLES */
+.section-title{ text-align:center; margin-bottom:60px; }
+.section-title h2{ font-size: clamp(2rem, 8vw, 68px); color:#ffa0d4; text-shadow:0 0 15px #ffa0d455; }
+.section-title p{ margin-top:15px; color:#ddd; font-size: clamp(0.9rem, 3vw, 1.1rem); }
 
 /* ABOUT */
-.about {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 45px;
-    align-items: center;
-    padding: 40px;
+.about{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+    gap:45px;
+    align-items:center;
+    padding:40px;
 }
-.about img { width: 100%; border-radius: 28px; }
-.about-content h2 { font-size: clamp(2rem, 6vw, 56px); margin-bottom: 20px; }
-.about-content span { color: #ffa0d4; }
-.features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    margin-top: 35px;
+.about img{ width:100%; border-radius:28px; }
+.about-content h2{ font-size: clamp(2rem, 6vw, 56px); margin-bottom:20px; }
+.about-content span{ color:#ffa0d4; }
+.about-content p{ line-height:2; color:#e0e0e0; font-size:clamp(0.9rem, 3vw, 1.05rem); }
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
+    gap:20px;
+    margin-top:35px;
 }
-.feature { background: rgba(255,255,255,0.08); padding: 22px; border-radius: 25px; text-align: center; }
+.feature{ background: rgba(255,255,255,0.08); padding:22px; border-radius:25px; text-align:center; }
 
 /* STAFF GRID */
-.staff-grid {
-    display: grid;
+.staff-grid{
+    display:grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
+    gap:30px;
+    margin-top:50px;
 }
-.staff-card {
-    padding: 35px 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.staff-card{
+    padding:35px 20px;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
-.staff-card img {
-    width: 120px; height: 120px; border-radius: 50%; object-fit: cover;
-    border: 4px solid rgba(255,255,255,0.25); margin-bottom: 20px;
+.staff-card img{
+    width:120px; height:120px; border-radius:50%; object-fit:cover;
+    border:4px solid rgba(255,255,255,0.25); margin-bottom:20px;
 }
-.staff-card h3 { font-size: 1.6rem; margin: 12px 0; }
-.role { padding: 6px 14px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; margin-bottom: 12px; display: inline-block; }
-.executive { background: #ff4fd822; color: #ff8ce9; }
-.managing { background: #9d4edd22; color: #d7a7ff; }
-.senior { background: #5ec8ff22; color: #8ee3ff; }
-.management { background: #ffffff12; color: #ffffff; }
+.staff-card h3{ font-size:1.6rem; margin:12px 0; color:white; }
+.staff-card p{ font-size:0.85rem; color:#dcdcdc; max-width:220px; }
+.role{ padding:6px 14px; border-radius:50px; font-size:0.7rem; font-weight:700; margin-bottom:12px; display:inline-block; }
+.executive{ background:#ff4fd822; color:#ff8ce9; border:1px solid #ffa0d444; }
+.managing{ background:#9d4edd22; color:#d7a7ff; }
+.senior{ background:#5ec8ff22; color:#8ee3ff; }
+.management{ background:#ffffff12; color:#ffffff; border:1px solid rgba(255,255,255,0.1); }
 
 /* EVENT */
-.event-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+.event-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+    gap:30px;
 }
-.event-card img { width: 100%; height: 220px; object-fit: cover; border-radius: 40px 40px 0 0; }
-.event-content { padding: 28px; }
+.event-card img{ width:100%; height:220px; object-fit:cover; border-radius: 40px 40px 0 0; }
+.event-content{ padding:28px; }
 
-/* GALLERY */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+/* GALLERY + TOP MEMBERS */
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    gap:25px;
 }
-.gallery-item {
-    overflow: hidden;
-    border-radius: 28px;
+.gallery-item{
+    overflow:hidden;
+    border-radius:28px;
     background: rgba(255,255,255,0.1);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255,255,255,0.15);
+    transition: 0.3s;
     display: flex;
     flex-direction: column;
 }
-.gallery-item img {
-    width: 100%;
+.gallery-item img{
+    width:100%;
     aspect-ratio: 1/1;
-    object-fit: cover;
-    transition: 0.4s;
+    object-fit:cover;
+    transition:0.4s;
 }
-.gallery-item:hover img { transform: scale(1.05); }
-.member-info {
+.gallery-item:hover img{ transform:scale(1.05); }
+.member-info{
     padding: 1.2rem 0.8rem 1.4rem;
     text-align: center;
     background: rgba(0,0,0,0.25);
     border-top: 1px solid rgba(255,255,255,0.1);
 }
-.member-info h3 {
+.member-info h3{
     font-size: 1.5rem;
+    font-weight: 700;
     background: linear-gradient(120deg, #fff, #ffb8e6);
-    -webkit-background-clip: text;
     background-clip: text;
+    -webkit-background-clip: text;
     color: transparent;
+}
+.member-info h3::after{
+    content: '';
+    display: block;
+    width: 45px;
+    height: 2px;
+    background: #ffa0d4;
+    margin: 10px auto 0;
+    border-radius: 4px;
 }
 
 /* ========= EXPANDED CONTACT SECTION WITH FORM ========= */
@@ -537,33 +558,32 @@ section {
 }
 
 /* FOOTER */
-footer {
+footer{
     padding: 35px;
-    text-align: center;
-    color: #aaa;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    text-align:center;
+    color:#aaa;
+    border-top:1px solid rgba(255,255,255,0.05);
     margin-top: 40px;
 }
-
-.footer-links {
+.footer-links{
     margin-top: 15px;
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
 }
-
-.footer-links a {
+.footer-links a{
     color: #ffa0d4;
     text-decoration: none;
     font-size: 0.8rem;
+    transition: 0.2s;
 }
-
-.footer-links a:hover {
+.footer-links a:hover{
+    color: #ffd0ff;
     text-decoration: underline;
 }
 
-/* INFO PANELS */
+/* ========= LIVE TIME & IP DISPLAYS ========= */
 .info-panel {
     position: fixed;
     bottom: 15px;
@@ -574,71 +594,213 @@ footer {
     padding: 6px 14px;
     border-radius: 30px;
     border: 1px solid rgba(255, 160, 212, 0.3);
+    font-weight: 500;
+    letter-spacing: 0.3px;
     color: #e0d6ff;
     pointer-events: none;
+    font-family: monospace;
 }
 
-.ip-display { left: 15px; }
-.time-display { right: 15px; }
+.ip-display {
+    left: 15px;
+}
 
-/* RESPONSIVE */
+.time-display {
+    right: 15px;
+}
+
+.info-panel i {
+    margin-right: 6px;
+    color: #ffa0d4;
+    font-size: 0.65rem;
+}
+
+/* RESPONSIVE adjustments */
+@media (max-width: 1100px) {
+    .side-nav { transform: translateY(-50%) scale(0.9); }
+    .side-nav ul li a i { font-size: 1.1rem; }
+    .side-nav ul li a span { font-size: 0.55rem; }
+    .main-content { margin-left: 70px; }
+    .nav-toggle-btn span { display: inline-block; }
+}
+
 @media (max-width: 850px) {
     .side-nav {
         transform: translateX(-100%);
         top: 0;
+        left: 0;
         height: 100vh;
         width: 220px;
         border-radius: 0;
+        backdrop-filter: blur(24px);
+        background: rgba(10, 5, 25, 0.95);
+        transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         padding-top: 70px;
     }
-    .main-content { margin-left: 0; }
+    .side-nav.open {
+        transform: translateX(0);
+    }
+    .side-nav.hidden-nav {
+        transform: translateX(-100%);
+    }
+    .side-nav ul { gap: 1.5rem; padding-left: 1rem; }
+    .side-nav ul li a { flex-direction: row; gap: 12px; justify-content: flex-start; padding: 10px 18px; }
+    .side-nav ul li a i { font-size: 1.2rem; margin-bottom: 0; }
+    .side-nav ul li a span { font-size: 0.85rem; }
+    .main-content { margin-left: 0; width: 100%; }
+    .main-content.expanded { margin-left: 0; }
+    .nav-toggle-btn { left: 15px; top: 15px; padding: 6px 12px; }
+    .nav-toggle-btn span { font-size: 0.65rem; }
+    section { padding: 80px 5% 80px 5%; }
+    .info-panel { font-size: 0.6rem; padding: 4px 10px; bottom: 10px; }
     .contact-wrapper { grid-template-columns: 1fr; }
-    section { padding: 80px 5%; }
 }
 
 @media (max-width: 650px) {
     .hero { flex-direction: column; text-align: center; }
     .hero-buttons { justify-content: center; }
+    .about { padding: 25px; }
+    .member-info h3 { font-size: 1.3rem; }
+    .nav-toggle-btn span { display: inline-block; font-size: 0.6rem; }
+    .info-panel { font-size: 0.55rem; }
+    .ip-display { left: 8px; }
+    .time-display { right: 8px; }
     .contact-wrapper { padding: 20px; }
 }
 
+@media (min-width: 1920px) {
+    .container { max-width: 1600px; }
+    section { padding: 130px 8%; }
+    .hero-left h1 { font-size: 140px; }
+}
+
+@media (min-width: 2560px) {
+    .container { max-width: 2000px; }
+    .hero-left h1 { font-size: 160px; }
+    .hero-left p { font-size: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+    .member-info h3 { font-size: 1.1rem; }
+    .nav-toggle-btn i { font-size: 0.85rem; }
+    .nav-toggle-btn span { display: none; }
+    .nav-toggle-btn { padding: 8px 12px; }
+    .info-panel { font-size: 0.5rem; padding: 3px 8px; }
+}
+
+/* Privacy Policy Page Styles */
+.privacy-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 120px 5% 100px;
+}
+.privacy-card {
+    background: rgba(20, 18, 40, 0.7);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 160, 212, 0.3);
+    border-radius: 40px;
+    padding: 50px 45px;
+}
+.privacy-card h1 {
+    font-size: 3rem;
+    background: linear-gradient(135deg, #ffc0e8, #c28aff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 10px;
+}
+.privacy-card .last-updated {
+    color: #aaa2cf;
+    font-size: 0.85rem;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.privacy-card h2 {
+    color: #ffa0d4;
+    font-size: 1.6rem;
+    margin: 30px 0 15px 0;
+}
+.privacy-card h3 {
+    color: #ffc0e8;
+    font-size: 1.2rem;
+    margin: 25px 0 10px 0;
+}
+.privacy-card p {
+    color: #cbc4e5;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+.privacy-card ul {
+    color: #cbc4e5;
+    line-height: 1.8;
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+.privacy-card li {
+    margin-bottom: 8px;
+}
+.back-home {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #ffa0d4, #9d4edd);
+    border-radius: 40px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+}
+.back-home:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255,160,212,0.35);
+}
+@media (max-width: 768px) {
+    .privacy-card { padding: 30px 25px; }
+    .privacy-card h1 { font-size: 2rem; }
+    .privacy-card h2 { font-size: 1.3rem; }
+}
 </style>
 </head>
 <body>
 
 <!-- STARS & EFFECTS -->
-<div class="stars">
-    <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
-    <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
-</div>
+<div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
 <img class="cloud cloud1" src="https://cdn-icons-png.flaticon.com/512/414/414927.png" alt="cloud">
 <img class="cloud cloud2" src="https://cdn-icons-png.flaticon.com/512/414/414927.png" alt="cloud">
 <img class="cloud cloud3" src="https://cdn-icons-png.flaticon.com/512/414/414927.png" alt="cloud">
 <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
 
-<!-- NAVIGATION TOGGLE -->
+<!-- HIDE/SHOW NAVIGATION BUTTON (Toggle visibility) -->
 <div class="nav-toggle-btn" id="navToggleBtn">
     <i class="fas fa-chevron-circle-left"></i>
     <span>Hide Nav</span>
 </div>
 
-<!-- LEFT NAVIGATION -->
+<!-- LEFT SIDE NAVIGATION (Reduced size) -->
 <div class="side-nav" id="sideNav">
     <ul>
-        <li><a href="#home" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
+        <li><a href="/" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
         <li><a href="#about" class="nav-link"><i class="fas fa-info-circle"></i><span>About</span></a></li>
         <li><a href="#staff" class="nav-link"><i class="fas fa-users"></i><span>Staff</span></a></li>
         <li><a href="#events" class="nav-link"><i class="fas fa-calendar-alt"></i><span>Events</span></a></li>
-        <li><a href="#top-members" class="nav-link"><i class="fas fa-crown"></i><span>Top</span></a></li>
+        <li><a href="#supporters" class="nav-link"><i class="fas fa-crown"></i><span>Supporters</span></a></li>
         <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
         <li><a href="https://discord.com/invite/ck6hEuQuCq" target="_blank" class="nav-link"><i class="fab fa-discord"></i><span>Discord</span></a></li>
     </ul>
 </div>
 
-<!-- IP & TIME -->
-<div class="info-panel ip-display" id="ipDisplay"><i class="fas fa-network-wired"></i> <span id="ipAddress">Loading...</span></div>
-<div class="info-panel time-display" id="timeDisplay"><i class="far fa-clock"></i> <span id="liveTime">--:--:--</span></div>
+<!-- IP ADDRESS DISPLAY (BOTTOM LEFT) -->
+<div class="info-panel ip-display" id="ipDisplay">
+    <i class="fas fa-network-wired"></i> <span id="ipAddress">Loading IP...</span>
+</div>
 
+<!-- LIVE TIME DISPLAY (BOTTOM RIGHT) -->
+<div class="info-panel time-display" id="timeDisplay">
+    <i class="far fa-clock"></i> <span id="liveTime">--:--:--</span>
+</div>
+
+<!-- MAIN CONTENT (Home Page) -->
 <div class="main-content" id="mainContent">
     <!-- HERO -->
     <section id="home">
@@ -649,12 +811,12 @@ footer {
                 <div class="jp">💮 Hคηค๓ī Hคⅴєη 💮</div>
                 <p>A peaceful Mallu community filled with chill vibes, music, gaming, anime and unlimited friendship.</p>
                 <div class="hero-buttons">
-                    <a href="https://discord.gg/ck6hEuQuCq" target="_blank" class="btn primary">Join Community →</a>
+                    <a href="https://discord.gg/ck6hEuQuCq" target="_blank" class="btn primary">Join Our Community</a>
                     <a href="#about" class="btn secondary">Explore More</a>
                 </div>
             </div>
             <div class="hero-right fade-scroll">
-                <img class="hero-image" src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/mainbackground.webp" alt="community">
+                <img class="hero-image" src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/mainbackground.webp" alt="community visual">
             </div>
         </div>
     </section>
@@ -663,15 +825,15 @@ footer {
     <section id="about">
         <div class="container">
             <div class="glass about fade-scroll">
-                <img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/aboutbackground.png" alt="about">
+                <img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/aboutbackground.png" alt="aesthetic">
                 <div class="about-content">
                     <h2>About <span>HANAMI HAVEN</span></h2>
                     <p>We are a cozy Malayalam community where you can be yourself, make new friends, enjoy late-night voice chats, play games, listen to music and share beautiful moments together.</p>
                     <div class="features">
-                        <div class="feature">💞<h4>Friendly</h4></div>
+                        <div class="feature">💞<h4>Friendly Community</h4></div>
                         <div class="feature">🎵<h4>Music & Chill</h4></div>
-                        <div class="feature">🎮<h4>Gaming</h4></div>
-                        <div class="feature">✨<h4>Anime</h4></div>
+                        <div class="feature">🎮<h4>Gaming & Events</h4></div>
+                        <div class="feature">✨<h4>Anime & Aesthetic</h4></div>
                     </div>
                 </div>
             </div>
@@ -683,21 +845,21 @@ footer {
         <div class="container">
             <div class="section-title fade-scroll"><h2>Our Staff</h2><p>The amazing people who keep Hanami HAVEN alive.</p></div>
             <div class="staff-grid">
-                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/s1.webp"><div class="role executive">EXECUTIVE DIRECTOR</div><h3>SAHADDD</h3><p>Leads HANAMI HAVEN</p></div>
-                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/og1.webp"><div class="role executive">EXECUTIVE DIRECTOR</div><h3>𝐎𝐆 𝐏𝐎𝐎𝐂𝐇𝐀</h3><p>Server development</p></div>
-                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/md1.webp"><div class="role managing">MANAGING DIRECTOR</div><h3>🌿Akira 🎋</h3><p>Systems & operations</p></div>
-                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/md2.webp"><div class="role managing">MANAGING DIRECTOR</div><h3>✦𝙰ℓεх✦</h3><p>Events & management</p></div>
-                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/sm1.webp"><div class="role senior">SENIOR MANAGEMENT</div><h3>BlackOp</h3><p>Community peace</p></div>
-                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m1.webp"><div class="role management">MANAGEMENT</div><h3>CruZ™</h3><p>Member support</p></div>
-                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m2.webp"><div class="role management">MANAGEMENT</div><h3>Dr.Luttappi</h3><p>Active chats</p></div>
-                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m3.webp"><div class="role management">MANAGEMENT</div><h3>godwin3159</h3><p>Entertainment</p></div>
-                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m4.webp"><div class="role management">MANAGEMENT</div><h3>KochuKuttan 🌙</h3><p>Positive vibes</p></div>
-                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m5.webp"><div class="role management">MANAGEMENT</div><h3>Neethu Kutty</h3><p>Moderation</p></div>
-                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m6.webp"><div class="role management">MANAGEMENT</div><h3>𝐒𝐮𝐫𝐚 𝐩𝐨𝐨𝐜𝐡𝐚</h3><p>Community growth</p></div>
-                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m7.webp"><div class="role management">MANAGEMENT</div><h3>Thakkudu</h3><p>Friendly atmosphere</p></div>
-                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m8.webp"><div class="role management">MANAGEMENT</div><h3>Voltriczzz ⚕</h3><p>Server activities</p></div>
-                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m9.webp"><div class="role management">Security</div><h3>EclipsedSoul</h3><p>Community support</p></div>
-                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m10.webp"><div class="role management">Security</div><h3>VΛLHΛLLΛ-X</h3><p>Support systems</p></div>
+                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/s1.webp" alt="avatar"><div class="role executive">EXECUTIVE DIRECTOR</div><h3>SAHADDD</h3><p>Leads HANAMI HAVEN and overall vision.</p></div>
+                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/og1.webp" alt="avatar"><div class="role executive">EXECUTIVE DIRECTOR</div><h3>𝐎𝐆 𝐏𝐎𝐎𝐂𝐇𝐀୨ৎ</h3><p>Oversees server development & direction.</p></div>
+                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/md1.webp" alt="avatar"><div class="role managing">MANAGING DIRECTOR</div><h3>🌿Akira 🎋</h3><p>Handles systems & server operations.</p></div>
+                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/md2.webp" alt="avatar"><div class="role managing">MANAGING DIRECTOR</div><h3>✦𝙰ℓεх✦</h3><p>Coordinates events & staff management.</p></div>
+                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/sm1.webp" alt="avatar"><div class="role senior">SENIOR MANAGEMENT</div><h3>BlackOp</h3><p>Maintains community peace & moderation.</p></div>
+                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m1.webp" alt="avatar"><div class="role management">MANAGEMENT</div><h3>CruZ™</h3><p>Supports members & community activities.</p></div>
+                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m2.webp" alt="avatar"><div class="role management">MANAGEMENT</div><h3>Dr.Luttappi</h3><p>Keeps chats active & member support.</p></div>
+                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m3.webp" alt="avatar"><div class="role management">MANAGEMENT</div><h3>godwin3159</h3><p>Organizes events & entertainment.</p></div>
+                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m4.webp" alt="avatar"><div class="role management">MANAGEMENT</div><h3>KochuKuttan 🌙</h3><p>Maintains positive community vibes.</p></div>
+                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m5.webp" alt="avatar"><div class="role management">MANAGEMENT</div><h3>Neethu Kutty</h3><p>Assists moderation & interaction.</p></div>
+                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m6.webp" alt="avatar"><div class="role management">MANAGEMENT</div><h3>𝐒𝐮𝐫𝐚 𝐩𝐨𝐨𝐜𝐡𝐚</h3><p>Supports community growth & daily tasks.</p></div>
+                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m7.webp" alt="avatar"><div class="role management">MANAGEMENT</div><h3>Thakkudu</h3><p>Creates friendly atmosphere.</p></div>
+                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m8.webp" alt="avatar"><div class="role management">MANAGEMENT</div><h3>Voltriczzz ⚕</h3><p>Assists server activities & engagement.</p></div>
+                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m9.webp" alt="avatar"><div class="role management">Security & Moderation</div><h3>EclipsedSoul</h3><p>Community support & events.</p></div>
+                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m10.webp" alt="avatar"><div class="role management">Security & Moderation</div><h3>VΛLHΛLLΛ-X</h3><p>Community support systems.</p></div>
             </div>
         </div>
     </section>
@@ -705,42 +867,29 @@ footer {
     <!-- EVENTS -->
     <section id="events">
         <div class="container">
-            <div class="section-title fade-scroll"><h2>Upcoming Events</h2><p>Join our fun events!</p></div>
+            <div class="section-title fade-scroll"><h2>Upcoming Events</h2><p>Join our fun events and make unforgettable memories!</p></div>
             <div class="event-grid">
-                <div class="glass event-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/upe.jpg"><div class="event-content"><h3>Will Be Update Soon</h3><p>Stay tuned for amazing events.</p></div></div>
-                <div class="glass event-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/upe.jpg"><div class="event-content"><h3>Will Be Update Soon</h3><p>More details coming.</p></div></div>
-                <div class="glass event-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/upe.jpg"><div class="event-content"><h3>Will Be Update Soon</h3><p>Exciting community meetups!</p></div></div>
+                <div class="glass event-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/upe.jpg" alt="event"><div class="event-content"><h3>Will Be Update Soon...</h3><p>Stay tuned for amazing events.</p></div></div>
+                <div class="glass event-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/upe.jpg" alt="event"><div class="event-content"><h3>Will Be Update Soon...</h3><p>More details coming.</p></div></div>
+                <div class="glass event-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/upe.jpg" alt="event"><div class="event-content"><h3>Will Be Update Soon...</h3><p>Exciting community meetups!</p></div></div>
             </div>
         </div>
     </section>
 
-    <!-- TOP MEMBERS -->
-    <section id="top-members">
-        <div class="container">
-            <div class="section-title fade-scroll"><h2>TOP MEMBERS</h2><p>Meet our elite community members</p></div>
-            <div class="gallery-grid">
-                <div class="gallery-item glass fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/t1.webp"><div class="member-info"><h3>SAM</h3></div></div>
-                <div class="gallery-item glass fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/t2.webp"><div class="member-info"><h3>leclerc</h3></div></div>
-                <div class="gallery-item glass fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/t3.webp"><div class="member-info"><h3>not Leclerc</h3></div></div>
-                <div class="gallery-item glass fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/t4.webp"><div class="member-info"><h3>Snow</h3></div></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SUPPORTERS -->
+    <!-- SUPPORTERS SECTION (names under image) -->
     <section id="supporters">
         <div class="container">
-            <div class="section-title fade-scroll"><h2>SUPPORTERS</h2><p>Community members who support our cause</p></div>
+            <div class="section-title fade-scroll"><h2>SUPPORTERS</h2><p>Community members who support our cause.</p></div>
             <div class="gallery-grid">
-                <div class="gallery-item glass fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/su1.webp"><div class="member-info"><h3>𓆩 𝒉𝒂𝒓𝒓𝒚 𝑹𝑶𝑮𝑶 𓆪</h3></div></div>
-                <div class="gallery-item glass fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/su2.webp"><div class="member-info"><h3>Chaya</h3></div></div>
-                <div class="gallery-item glass fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/su3.webp"><div class="member-info"><h3>Wizy</h3></div></div>
-                <div class="gallery-item glass fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/su4.webp"><div class="member-info"><h3>Amith</h3></div></div>
+                <div class="gallery-item glass fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/su1.webp" alt="Top Member"><div class="member-info"><h3>𓆩 𝒉𝒂𝒓𝒓𝒚 𝑹𝑶𝑮𝑶 𓆪</h3></div></div>
+                <div class="gallery-item glass fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/su2.webp" alt="Top Member"><div class="member-info"><h3>Chaya</h3></div></div>
+                <div class="gallery-item glass fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/su3.webp" alt="Top Member"><div class="member-info"><h3>Wizy</h3></div></div>
+                <div class="gallery-item glass fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/su4.webp" alt="Top Member"><div class="member-info"><h3>Amith</h3></div></div> 
             </div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION - EXPANDED WITH FORM & DISCORD WEBHOOK -->
+    <!-- CONTACT SECTION WITH FORM -->
     <section id="contact">
         <div class="container">
             <div class="section-title fade-scroll">
@@ -754,15 +903,7 @@ footer {
                     <div class="contact-details">
                         <div class="contact-detail-item">
                             <i class="fab fa-discord"></i>
-                            <span>Join our Discord: discord.gg/hanamihaven</span>
-                        </div>
-                        <div class="contact-detail-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>Email: support@hanamihaven.com</span>
-                        </div>
-                        <div class="contact-detail-item">
-                            <i class="fas fa-globe"></i>
-                            <span>Community: 5000+ active members</span>
+                            <span>Join our Discord: discord.gg/ck6hEuQuCq</span>
                         </div>
                     </div>
                 </div>
@@ -806,35 +947,68 @@ footer {
     <footer class="fade-scroll">
         <div>© 2026 HANAMI HAVEN • Made with 💖 for our community</div>
         <div class="footer-links">
-            <a href="#" id="privacyLink"><i class="fas fa-shield-alt"></i> Privacy & Policy</a>
+            <a href="#" id="privacyPolicyLink"><i class="fas fa-shield-alt"></i> Privacy & Policy</a>
         </div>
     </footer>
 </div>
 
+<!-- PRIVACY POLICY PAGE (separate section - EXACT FORMAT) -->
+<div id="privacy-policy-page" style="display: none;">
+    <div class="privacy-container">
+        <div class="privacy-card">
+            <h1><i class="fas fa-shield-alt"></i> Privacy & Policy</h1>
+            <div class="last-updated">Last Updated: May 2026</div>
+            
+            <h2>1. Cookies</h2>
+            <p>Our website may use cookies or similar technologies to improve functionality and user experience. Users can disable cookies through their browser settings.</p>
+            
+            <h2>2. Data Security</h2>
+            <p>We use reasonable security measures to protect stored information from unauthorized access, misuse, or disclosure. However, no online platform can guarantee absolute security.</p>
+            
+            <h2>3. User Responsibilities</h2>
+            <p>Community members are expected to:</p>
+            <ul>
+                <li>Use the website responsibly</li>
+                <li>Respect other users' privacy</li>
+                <li>Avoid abusing, attacking, or attempting to bypass website systems</li>
+            </ul>
+            <p>Violation of community or security rules may lead to account suspension or removal.</p>
+            
+            <h2>Policy Updates</h2>
+            <p>This Privacy Policy may be updated at any time. Continued use of the website after updates means acceptance of the revised policy.</p>
+            
+            <h2>Contact</h2>
+            <p>For questions, concerns, or privacy-related requests, please contact the community administration team through the official website contact method.</p>
+            
+            <a href="#" id="backToHomeBtn" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </div>
+</div>
+
 <script>
-    // DISCORD WEBHOOK URL (REPLACE WITH YOUR ACTUAL WEBHOOK URL)
-    const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1505773607366692924/vWHNyl6iq_gSkTeknaE3m_4KHFdp-otXcxsUw5kmJxyWMMtFR_mXXtR9fw4shdfwacz-";
-    
-    // FADE SCROLL OBSERVER
-    const fadeElements = document.querySelectorAll('.fade-scroll');
+    // INTERSECTION OBSERVER FOR FADE-SCROLL
+    const animatedElements = document.querySelectorAll('.fade-scroll');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if(entry.isIntersecting) entry.target.classList.add('visible');
             else entry.target.classList.remove('visible');
         });
-    }, { threshold: 0.2 });
-    fadeElements.forEach(el => observer.observe(el));
+    }, { threshold: 0.2, rootMargin: "0px 0px -10px 0px" });
+    animatedElements.forEach(el => observer.observe(el));
 
-    // ACTIVE LINK
+    // ACTIVE LINK HIGHLIGHT ON SCROLL
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
+    
     function updateActiveLink() {
         let current = '';
         const scrollPos = window.scrollY + 150;
         sections.forEach(section => {
-            const top = section.offsetTop;
-            const height = section.clientHeight;
-            if(scrollPos >= top && scrollPos < top + height) current = section.getAttribute('id');
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if(scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
         });
         navLinks.forEach(link => {
             link.classList.remove('active');
@@ -844,81 +1018,158 @@ footer {
     }
     window.addEventListener('scroll', updateActiveLink);
     window.addEventListener('load', updateActiveLink);
-
-    // NAV TOGGLE
-    const toggleBtn = document.getElementById('navToggleBtn');
+    
+    // HIDE / SHOW NAVIGATION BUTTON FUNCTIONALITY
+    const navToggleBtn = document.getElementById('navToggleBtn');
     const sideNav = document.getElementById('sideNav');
     const mainContent = document.getElementById('mainContent');
     let isNavHidden = false;
-    if(toggleBtn) {
-        toggleBtn.addEventListener('click', () => {
+    
+    if(navToggleBtn && sideNav && mainContent) {
+        navToggleBtn.addEventListener('click', () => {
             if(!isNavHidden) {
                 sideNav.classList.add('hidden-nav');
                 mainContent.classList.add('expanded');
-                toggleBtn.innerHTML = '<i class="fas fa-chevron-circle-right"></i><span>Show Nav</span>';
+                navToggleBtn.innerHTML = '<i class="fas fa-chevron-circle-right"></i><span>Show Nav</span>';
                 isNavHidden = true;
             } else {
                 sideNav.classList.remove('hidden-nav');
                 mainContent.classList.remove('expanded');
-                toggleBtn.innerHTML = '<i class="fas fa-chevron-circle-left"></i><span>Hide Nav</span>';
+                navToggleBtn.innerHTML = '<i class="fas fa-chevron-circle-left"></i><span>Hide Nav</span>';
                 isNavHidden = false;
             }
         });
     }
+    
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            if(window.innerWidth <= 850 && sideNav.classList.contains('open')) {
+                sideNav.classList.remove('open');
+            }
+        });
+    });
+    
+    window.addEventListener('resize', () => {
+        if(window.innerWidth > 850) {
+            if(sideNav.classList.contains('open')) sideNav.classList.remove('open');
+            if(!isNavHidden) {
+                mainContent.classList.remove('expanded');
+            } else {
+                mainContent.classList.add('expanded');
+            }
+        } else {
+            if(isNavHidden) {
+                sideNav.classList.add('hidden-nav');
+                mainContent.classList.add('expanded');
+            } else {
+                sideNav.classList.remove('hidden-nav');
+                mainContent.classList.remove('expanded');
+            }
+        }
+    });
+    
+    if(window.innerWidth <= 850 && isNavHidden) {
+        mainContent.classList.add('expanded');
+    }
 
-    // LIVE TIME
+    // LIVE TIME FUNCTION
     function updateLiveTime() {
         const now = new Date();
-        const timeString = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}:${String(now.getSeconds()).padStart(2,'0')}`;
-        const timeEl = document.getElementById('liveTime');
-        if(timeEl) timeEl.textContent = timeString;
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        const timeString = `${hours}:${minutes}:${seconds}`;
+        const timeElement = document.getElementById('liveTime');
+        if(timeElement) timeElement.textContent = timeString;
     }
     updateLiveTime();
     setInterval(updateLiveTime, 1000);
 
-    // IP ADDRESS
+    // IP ADDRESS FETCH
     async function fetchIP() {
-        const ipEl = document.getElementById('ipAddress');
-        if(!ipEl) return;
+        const ipElement = document.getElementById('ipAddress');
+        if(!ipElement) return;
         try {
-            const res = await fetch('https://api.ipify.org?format=json');
-            const data = await res.json();
-            ipEl.textContent = data.ip;
-        } catch { ipEl.textContent = 'Unable to fetch'; }
+            const response = await fetch('https://api.ipify.org?format=json');
+            const data = await response.json();
+            ipElement.textContent = data.ip;
+        } catch (error) {
+            ipElement.textContent = 'Unable to fetch';
+        }
     }
     fetchIP();
 
-    // CONTACT FORM SUBMIT TO DISCORD WEBHOOK
+    // PRIVACY POLICY REDIRECT FUNCTIONALITY
+    const mainContentDiv = document.getElementById('mainContent');
+    const privacyDiv = document.getElementById('privacy-policy-page');
+    const sideNavBar = document.getElementById('sideNav');
+    const toggleBtn = document.getElementById('navToggleBtn');
+    
+    function showPrivacyPolicy() {
+        if (mainContentDiv) mainContentDiv.style.display = 'none';
+        if (privacyDiv) privacyDiv.style.display = 'block';
+        if (sideNavBar) sideNavBar.style.opacity = '0.5';
+        if (toggleBtn) toggleBtn.style.opacity = '0.7';
+        window.scrollTo(0, 0);
+    }
+    
+    function showHomePage() {
+        if (mainContentDiv) mainContentDiv.style.display = 'block';
+        if (privacyDiv) privacyDiv.style.display = 'none';
+        if (sideNavBar) sideNavBar.style.opacity = '1';
+        if (toggleBtn) toggleBtn.style.opacity = '1';
+    }
+    
+    const privacyLink = document.getElementById('privacyPolicyLink');
+    if(privacyLink) {
+        privacyLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showPrivacyPolicy();
+        });
+    }
+    
+    const backHomeBtn = document.getElementById('backToHomeBtn');
+    if(backHomeBtn) {
+        backHomeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            showHomePage();
+        });
+    }
+
+    // CONTACT FORM SUBMIT HANDLER (with Discord Webhook)
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
     const submitBtn = document.getElementById('submitBtn');
-
-    async function sendToDiscordWebhook(formData) {
+    
+    // IMPORTANT: Replace with your actual Discord Webhook URL
+    const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1505773607366692924/vWHNyl6iq_gSkTeknaE3m_4KHFdp-otXcxsUw5kmJxyWMMtFR_mXXtR9fw4shdfwacz-";
+    
+    async function sendToDiscord(formData) {
         const name = formData.get('name');
         const discordId = formData.get('discordId');
         const subject = formData.get('subject');
         const message = formData.get('message');
+        const ipAddress = document.getElementById('ipAddress')?.textContent || 'Unknown';
         
         const embed = {
-            title: `📬 New Contact Form Submission`,
+            title: "📬 New Contact Form Submission",
             color: 0xffa0d4,
             fields: [
-                { name: '👤 Name', value: name || 'Not provided', inline: true },
-                { name: '🎮 Discord ID', value: discordId || 'Not provided', inline: true },
-                { name: '📌 Subject', value: subject || 'Not provided', inline: false },
-                { name: '💬 Message', value: message || 'No message', inline: false },
-            //    { name: '🌐 IP Address', value: document.getElementById('ipAddress')?.textContent || 'Unknown', inline: true },
-                { name: '⏰ Timestamp', value: new Date().toLocaleString(), inline: true }
+                { name: "👤 Name", value: name || "Not provided", inline: true },
+                { name: "🎮 Discord ID", value: discordId || "Not provided", inline: true },
+                { name: "📌 Subject", value: subject || "Not provided", inline: false },
+                { name: "💬 Message", value: message || "No message", inline: false },
+            //    { name: "🌐 IP Address", value: ipAddress, inline: true },
+                { name: "⏰ Timestamp", value: new Date().toLocaleString(), inline: true }
             ],
-            footer: { text: 'HANAMI HAVEN Contact System' },
+            footer: { text: "HANAMI HAVEN Contact System" },
             timestamp: new Date().toISOString()
         };
         
         const payload = {
             username: "Hanami Haven Bot",
             avatar_url: "https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/t1.webp",
-            embeds: [embed],
-            content: `<@&1504178539669229589> New message from **${name}**!`
+            embeds: [embed]
         };
         
         try {
@@ -933,58 +1184,52 @@ footer {
             return false;
         }
     }
-
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const name = document.getElementById('name').value.trim();
-        const discordId = document.getElementById('discordId').value.trim();
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value.trim();
-        
-        if(!name || !discordId || !subject || !message) {
-            formStatus.className = 'form-status error';
-            formStatus.textContent = '❌ Please fill in all required fields.';
-            return;
-        }
-        
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Sending...';
-        
-        const formData = new FormData();
-        formData.append('name', name);
-        formData.append('discordId', discordId);
-        formData.append('subject', subject);
-        formData.append('message', message);
-        
-        const success = await sendToDiscordWebhook(formData);
-        
-        if(success) {
-            formStatus.className = 'form-status success';
-            formStatus.textContent = '✅ Message sent successfully! Our team will reach out to you soon.';
-            contactForm.reset();
-        } else {
-            formStatus.className = 'form-status error';
-            formStatus.textContent = '❌ Failed to send message. Please try again later or contact us directly on Discord.';
-        }
-        
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-        
-        setTimeout(() => {
-            formStatus.style.display = 'none';
-            formStatus.style.display = '';
-        }, 5000);
-    });
-
-    // PRIVACY POLICY
-    const privacyLink = document.getElementById('privacyLink');
-    if(privacyLink) {
-        privacyLink.addEventListener('click', (e) => {
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            alert("📜 PRIVACY & POLICY\n\n7. Cookies: We may use cookies to improve functionality. Users can disable via browser settings.\n\n8. Data Security: We use reasonable security measures, but absolute security cannot be guaranteed.\n\n9. User Responsibilities: Use responsibly, respect others' privacy, no abuse or bypassing systems.\n\n10. Policy Updates: Continued use means acceptance of updates.\n\n11. Contact: Reach out via Discord or contact form for privacy concerns.");
+            
+            const name = document.getElementById('name').value.trim();
+            const discordId = document.getElementById('discordId').value.trim();
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value.trim();
+            
+            if (!name || !discordId || !subject || !message) {
+                formStatus.className = 'form-status error';
+                formStatus.textContent = '❌ Please fill in all required fields.';
+                return;
+            }
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Sending...';
+            
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('discordId', discordId);
+            formData.append('subject', subject);
+            formData.append('message', message);
+            
+            const success = await sendToDiscord(formData);
+            
+            if (success) {
+                formStatus.className = 'form-status success';
+                formStatus.textContent = '✅ Message sent successfully! Our team will reach out to you soon.';
+                contactForm.reset();
+            } else {
+                formStatus.className = 'form-status error';
+                formStatus.textContent = '❌ Failed to send message. Please try again later or contact us directly on Discord.';
+            }
+            
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+            
+            setTimeout(() => {
+                formStatus.style.display = 'none';
+                formStatus.style.display = '';
+            }, 5000);
         });
     }
 </script>
+
 </body>
 </html>
