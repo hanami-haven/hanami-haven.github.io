@@ -8,7 +8,7 @@
 <title>HANAMI HAVEN — Mallu Community | Gaming, Music & Chill</title>
 
 <!-- SEO -->
-<meta name="description" content="HANAMI HAVEN is a peaceful Malayalam community hub. Join us for gaming, music, late-night VC, and unlimited friendship.">
+<meta name="description" content="HANAMI HAVEN is a peaceful Malayalam community hub. Join us for gaming, music, anime, late-night VC, and unlimited friendship.">
 
 <!-- Embed Preview (Discord, WhatsApp, Facebook, etc.) -->
 <meta property="og:title" content="HANAMI HAVEN — Mallu Community | Join the Family">
@@ -22,10 +22,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="HANAMI HAVEN — Mallu Community Hub">
 <meta name="twitter:description" content="Join our cozy Malayalam community for gaming, music, anime, and late-night voice chats! 🌸">
-<meta name="twitter:image" content="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/mainbackground.webp">
+<meta name="twitter:image" content="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/og-image.png">
 
 <!-- Additional SEO -->
-<meta name="keywords" content="Hanami Haven, Malayalam community, Discord server, music chill, Kerala , Mallu Discord">
+<meta name="keywords" content="Hanami Haven, Malayalam community, Discord server, gaming community, music chill, anime community, Kerala gamers, Mallu Discord">
 <meta name="author" content="HANAMI HAVEN">
 <meta name="theme-color" content="#ffa0d4">
 
@@ -35,6 +35,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <style>
+
 
 *{
     margin:0;
@@ -48,32 +49,27 @@ html{
 }
 
 body{
-    background:
-    linear-gradient(rgba(7,5,25,0.72),rgba(7,5,25,0.90)),
-    url('https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/background.png');
+    background: url('https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/background.png');
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
     background-attachment:fixed;
     color:white;
     overflow-x:hidden;
+    position: relative;
 }
 
-/* GLOW EFFECT */
-body::before{
-    content:'';
-    position:fixed;
-    inset:0;
-    background:
-    radial-gradient(circle at top left,#ff5fd833,transparent 25%),
-    radial-gradient(circle at bottom right,#9d4edd33,transparent 25%);
-    animation:bgGlow 8s ease-in-out infinite alternate;
-    z-index:-3;
-}
-
-@keyframes bgGlow{
-    0%{ opacity:0.7; transform:scale(1); }
-    100%{ opacity:1; transform:scale(1.04); }
+/* SUBTLE DARK TINT OVERLAY - JUST A LITTLE BIT */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: -1;
+    pointer-events: none;
 }
 
 /* STARS */
@@ -128,7 +124,7 @@ body::before{
     position:fixed;
     width:18px;
     height:18px;
-    background:#ff82e6;
+    background:#ff5cde;
     border-radius:70% 0 70% 0;
     opacity:0.35;
     z-index:-1;
@@ -243,7 +239,6 @@ body::before{
     gap: 6px;
 }
 
-    
 .nav-toggle-btn i {
     font-size: 1rem;
 }
@@ -304,13 +299,13 @@ section{
 .hero-left{ flex:1; min-width:300px; }
 .hero-left h3{ font-size:42px; color:#ff9de8; margin-bottom:12px; font-family:cursive; }
 .hero-left h1{ font-size: clamp(3rem, 10vw, 120px); line-height:0.92; margin-bottom:25px; font-weight:800; }
-.hero-left h1 span{ color:#ffa0d4; text-shadow:0 0 20px #ffa0d4, 0 0 45px #ffa0d455; }
+.hero-left h1 span{ color:#bd4343; 0 0 45px #ffa0d455; }
 .jp{
     display:inline-block; padding:12px 26px; border-radius:50px;
     background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);
     margin-bottom:28px; color:#ffd6ff;
 }
-.hero-left p{ color:#e2e2e2; line-height:2; font-size: clamp(1rem, 4vw, 1.2rem); max-width:650px; }
+.hero-left p{ color:#fae5d6; line-height:2; font-size: clamp(1rem, 4vw, 1.2rem); max-width:650px; }
 .hero-buttons{ margin-top:40px; display:flex; gap:20px; flex-wrap:wrap; }
 .btn{
     padding:14px 32px; border-radius:50px; text-decoration:none; color:white;
@@ -318,16 +313,16 @@ section{
 }
 .primary{ background:linear-gradient(135deg,#ffa0d4,#9d4edd); box-shadow:0 0 20px #ffa0d466; }
 .secondary{ background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); }
-.btn:hover{ transform:translateY(-5px); }
+.btn:hover{ transform:translateY(-50px); }
 .hero-right{ flex:1; min-width:280px; display:flex; justify-content:center; }
 .hero-image{ width:100%; max-width:650px; border-radius:40px; box-shadow:0 0 50px rgba(255,120,222,0.18); animation:floatImage 6s ease-in-out infinite; }
 @keyframes floatImage{ 0%{ transform:translateY(0px);} 50%{ transform:translateY(-12px);} 100%{ transform:translateY(0px);} }
 
 /* GLASS COMPONENT */
 .glass{
-    background: rgba(255,255,255,0.12);
+    background: rgba(20, 18, 40, 0.65);
     border: 1px solid rgba(255,255,255,0.18);
-    backdrop-filter: blur(16px);
+    backdrop-filter: blur(12px);
     border-radius: 40px;
     transition: 0.3s;
 }
@@ -335,8 +330,8 @@ section{
 
 /* SECTION TITLES */
 .section-title{ text-align:center; margin-bottom:60px; }
-.section-title h2{ font-size: clamp(2rem, 8vw, 68px); color:#ffa0d4; text-shadow:0 0 15px #ffa0d455; }
-.section-title p{ margin-top:15px; color:#ddd; font-size: clamp(0.9rem, 3vw, 1.1rem); }
+.section-title h2{ font-size: clamp(2rem, 8vw, 68px); color:#E2E480; text-shadow:0 0 15px #fdbf90; }
+.section-title p{ margin-top:15px; color:#ffd6ea; text-shadow:0 0 15px #f7e4d7; font-size: clamp(0.9rem, 3vw, 1.1rem); }
 
 /* ABOUT */
 .about{
@@ -402,7 +397,7 @@ section{
 .gallery-item{
     overflow:hidden;
     border-radius:28px;
-    background: rgba(255,255,255,0.1);
+    background: rgba(20, 18, 40, 0.65);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255,255,255,0.15);
     transition: 0.3s;
@@ -488,7 +483,7 @@ section{
 }
 
 .contact-form {
-    background: rgba(255,255,255,0.08);
+    background: rgba(20, 18, 40, 0.65);
     padding: 30px;
     border-radius: 32px;
 }
@@ -583,31 +578,67 @@ section{
 }
 
 /* FOOTER */
+
 footer{
-    padding: 35px;
-    text-align:center;
-    color:#aaa;
-    border-top:1px solid rgba(255,255,255,0.05);
+
+    position: relative;
+
+    padding: 35px 20px;
+
+    text-align: center;
+
     margin-top: 40px;
-}
-.footer-links{
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-.footer-links a{
-    color: #ffa0d4;
-    text-decoration: none;
-    font-size: 0.8rem;
-    transition: 0.2s;
-}
-.footer-links a:hover{
-    color: #ffd0ff;
-    text-decoration: underline;
+
+    overflow: hidden;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+
+    color: #fff3f7;
 }
 
+
+/* CONTENT */
+
+.footer-content{
+
+    position: relative;
+
+    z-index: 1;
+}
+
+/* LINKS */
+
+.footer-links{
+
+    margin-top: 15px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+}
+
+.footer-links a{
+
+    color: #ffd6ea;
+
+    text-decoration: none;
+
+    font-size: 0.85rem;
+
+    transition: 0.25s ease;
+}
+
+.footer-links a:hover{
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.45);
+}
 /* ========= LIVE TIME & IP DISPLAYS ========= */
 .info-panel {
     position: fixed;
@@ -713,6 +744,202 @@ footer{
     .info-panel { font-size: 0.5rem; padding: 3px 8px; }
 }
 
+.contact-detail-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:18px 22px;
+    border-radius:18px;
+    background:rgba(255,255,255,0.04);
+}
+.contact-detail-item i{
+    min-width:24px;
+    font-size:20px;
+}
+.contact-detail-item span{
+    flex:1;
+    text-align:left;
+    word-break:break-word;
+}
+.contact-btn{
+    padding:10px 20px;
+    border-radius:12px;
+    text-decoration:none;
+    color:#fff;
+    font-weight:600;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.15);
+    transition:0.3s;
+}
+.contact-btn:hover{
+    transform:translateY(-3px);
+    background:rgba(255,255,255,0.15);
+}
+
+/* Patron Page Styles */
+.patron-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 120px 5% 100px;
+}
+.patron-card {
+    background: rgba(20, 18, 40, 0.7);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 160, 212, 0.3);
+    border-radius: 40px;
+    padding: 60px 50px;
+    text-align: center;
+}
+.patron-card h1 {
+    font-size: 3rem;
+    background: linear-gradient(135deg, #ffc0e8, #c28aff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 20px;
+}
+.patron-icon {
+    font-size: 5rem;
+    color: #ffa0d4;
+    margin: 20px 0;
+}
+
+/* Patron Requirement Badge */
+.patron-requirement {
+    background: linear-gradient(135deg, rgba(255,160,212,0.2), rgba(157,78,221,0.2));
+    border: 1px solid #ffa0d4;
+    border-radius: 50px;
+    padding: 12px 25px;
+    display: inline-block;
+    margin: 15px 0 25px 0;
+    font-size: 1rem;
+    color: #ffc0e8;
+}
+
+/* Benefits Grid */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    text-align: left;
+    margin: 25px 0;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background: rgba(255,255,255,0.05);
+    padding: 15px 18px;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+.benefit-item:hover {
+    background: rgba(255,160,212,0.1);
+    transform: translateX(5px);
+}
+
+.benefit-item i {
+    font-size: 1.6rem;
+    color: #ffa0d4;
+    min-width: 40px;
+    text-align: center;
+    margin-top: 3px;
+}
+
+.benefit-item h4 {
+    color: #ffc0e8;
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.benefit-item p {
+    color: #b9b1dc;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.coming-soon {
+    font-size: 0.65rem;
+    background: rgba(255,160,212,0.2);
+    padding: 2px 8px;
+    border-radius: 20px;
+    color: #ffa0d4;
+    margin-left: 8px;
+    font-weight: normal;
+}
+
+/* Patron Note */
+.patron-note {
+    background: rgba(255,160,212,0.1);
+    border: 1px solid rgba(255,160,212,0.3);
+    border-radius: 60px;
+    padding: 15px 25px;
+    display: inline-block;
+    margin-top: 20px;
+}
+.patron-note i {
+    color: #ffa0d4;
+    margin-right: 10px;
+}
+
+/* Button Group */
+.patron-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.boost-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #ffa0d4, #9d4edd);
+    border-radius: 40px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+    box-shadow: 0 4px 15px rgba(255,160,212,0.3);
+}
+
+.boost-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255,160,212,0.5);
+}
+
+.back-home-patron {
+    display: inline-block;
+    margin-top: 0;
+    padding: 12px 28px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,160,212,0.3);
+    border-radius: 40px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+}
+.back-home-patron:hover {
+    transform: translateY(-3px);
+    background: rgba(255,160,212,0.15);
+    border-color: #ffa0d4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .patron-card { padding: 35px 25px; }
+    .patron-card h1 { font-size: 2rem; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .benefit-item { padding: 12px 15px; }
+    .patron-requirement { font-size: 0.85rem; text-align: center; }
+    .patron-buttons { gap: 15px; }
+    .boost-btn, .back-home-patron { padding: 10px 20px; font-size: 0.9rem; }
+}
+
 /* Privacy Policy Page Styles */
 .privacy-container {
     max-width: 1000px;
@@ -745,11 +972,6 @@ footer{
     color: #ffa0d4;
     font-size: 1.6rem;
     margin: 30px 0 15px 0;
-}
-.privacy-card h3 {
-    color: #ffc0e8;
-    font-size: 1.2rem;
-    margin: 25px 0 10px 0;
 }
 .privacy-card p {
     color: #cbc4e5;
@@ -836,7 +1058,7 @@ footer{
                 <div class="jp">💮 Hคηค๓ī Hคⅴєη 💮</div>
                 <p>A peaceful Mallu community filled with chill vibes, music, gaming, anime and unlimited friendship.</p>
                 <div class="hero-buttons">
-                    <a href="https://discord.gg/ck6hEuQuCq" target="_blank" class="btn primary">Join Our Community</a>
+                    <a href="https://discord.gg/ck6hEuQuCq" target="_blank" class="btn primary">Join Hanami Haven</a>
                     <a href="#about" class="btn secondary">Explore More</a>
                 </div>
             </div>
@@ -853,12 +1075,12 @@ footer{
                 <img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/aboutbackground.png" alt="aesthetic">
                 <div class="about-content">
                     <h2>About <span>HANAMI HAVEN</span></h2>
-                    <p>We are a cozy Malayalam community where you can be yourself, make new friends, enjoy late-night voice chats, play games, listen to music and share beautiful moments together.</p>
+                    <p>Hanami Haven is a cozy and welcoming Mallu community built for people who want to relax, connect and create unforgettable memories together. Whether you're looking for late-night conversations, music vibes, meaningful friendships or simply a peaceful place to hang out, Hanami Haven offers a warm and friendly atmosphere where everyone can truly be themselves...Community events and active voice chats to supportive members and aesthetic vibes, our goal is to create a space that feels like a second home for everyone who joins us.</p>
                     <div class="features">
                         <div class="feature">💞<h4>Friendly Community</h4></div>
                         <div class="feature">🎵<h4>Music & Chill</h4></div>
-                        <div class="feature">🎮<h4>Gaming & Events</h4></div>
-                        <div class="feature">✨<h4>Anime & Aesthetic</h4></div>
+                        <div class="feature">🌙<h4>Late Night Talks</h4></div>
+                        <div class="feature">🎭<h4>Fun & Creativity</h4></div>
                     </div>
                 </div>
             </div>
@@ -872,8 +1094,8 @@ footer{
             <div class="staff-grid">
                 <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/s1.webp" alt="avatar"><div class="role executive">EXECUTIVE DIRECTOR</div><h3>SAHADDD</h3><p>Leads HANAMI HAVEN and overall vision.</p></div>
                 <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/og1.webp" alt="avatar"><div class="role executive">EXECUTIVE DIRECTOR</div><h3>𝐎𝐆 𝐏𝐎𝐎𝐂𝐇𝐀୨ৎ</h3><p>Oversees server development & direction.</p></div>
-                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/md1.webp" alt="avatar"><div class="role managing">MANAGING DIRECTOR</div><h3>🌿Akira 🎋</h3><p>Handles systems & server operations.</p></div>
-                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/md2.webp" alt="avatar"><div class="role managing">MANAGING DIRECTOR</div><h3>✦𝙰ℓεх✦</h3><p>Coordinates events & staff management.</p></div>
+                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/AJITH.webp" alt="avatar"><div class="role managing">MANAGING DIRECTOR</div><h3>Ajith</h3><p>Handles systems & server operations.</p></div>
+                <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/ALEX.webp" alt="avatar"><div class="role managing">MANAGING DIRECTOR</div><h3>✦𝙰ℓεх✦</h3><p>Coordinates events & staff management.</p></div>
                 <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/sm1.webp" alt="avatar"><div class="role senior">SENIOR MANAGEMENT</div><h3>BlackOp</h3><p>Maintains community peace & moderation.</p></div>
                 <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m1.webp" alt="avatar"><div class="role management">MANAGEMENT</div><h3>CruZ™</h3><p>Supports members & community activities.</p></div>
                 <div class="glass staff-card fade-scroll"><img src="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/m2.webp" alt="avatar"><div class="role management">MANAGEMENT</div><h3>Dr.Luttappi</h3><p>Keeps chats active & member support.</p></div>
@@ -901,7 +1123,7 @@ footer{
         </div>
     </section>
 
-    <!-- SUPPORTERS SECTION (names under image) -->
+    <!-- SUPPORTERS SECTION -->
     <section id="supporters">
         <div class="container">
             <div class="section-title fade-scroll"><h2>SUPPORTERS</h2><p>Community members who support our cause.</p></div>
@@ -914,7 +1136,8 @@ footer{
         </div>
     </section>
 
-    <!-- CONTACT SECTION WITH FORM -->
+
+    <!-- CONTACT SECTION -->
     <section id="contact">
         <div class="container">
             <div class="section-title fade-scroll">
@@ -928,11 +1151,15 @@ footer{
                     <div class="contact-details">
                         <div class="contact-detail-item">
                             <i class="fab fa-discord"></i>
-                            <span>Join our Discord: discord.gg/ck6hEuQuCq</span>
+                            <span>Join Haven: discord.gg/ck6hEuQuCq</span>
+                            <a href="https://discord.gg/ck6hEuQuCq" class="contact-btn" target="_blank">Join</a>
+                        </div>
+                        <div class="contact-detail-item">
+                            <i class="fas fa-at"></i>
+                            <span>Get In Touch: havenhanami@gmail.com</span>
                         </div>
                     </div>
                 </div>
-                
                 <div class="contact-form">
                     <form id="contactForm">
                         <div class="form-group">
@@ -970,42 +1197,135 @@ footer{
     </section>
 
     <footer class="fade-scroll">
-        <div>© 2026 HANAMI HAVEN • Made with 💖 for our community</div>
+            <div>© 2026 HANAMI HAVEN • Made with 💖 for our community</div>
+            <div>✦ Powered by Team EclipsedSoul ✦</div>
         <div class="footer-links">
             <a href="#" id="privacyPolicyLink"><i class="fas fa-shield-alt"></i> Privacy & Policy</a>
+            <a href="#" id="patronLink"><i class="fas fa-gem"></i> Patron</a>
         </div>
     </footer>
 </div>
 
-<!-- PRIVACY POLICY PAGE (separate section - EXACT FORMAT) -->
+<!-- PRIVACY POLICY PAGE -->
 <div id="privacy-policy-page" style="display: none;">
     <div class="privacy-container">
         <div class="privacy-card">
             <h1><i class="fas fa-shield-alt"></i> Privacy & Policy</h1>
             <div class="last-updated">Last Updated: May 2026</div>
-            
             <h2>1. Cookies</h2>
             <p>Our website may use cookies or similar technologies to improve functionality and user experience. Users can disable cookies through their browser settings.</p>
-            
             <h2>2. Data Security</h2>
             <p>We use reasonable security measures to protect stored information from unauthorized access, misuse, or disclosure. However, no online platform can guarantee absolute security.</p>
-            
             <h2>3. User Responsibilities</h2>
             <p>Community members are expected to:</p>
-            <ul>
-                <li>Use the website responsibly</li>
-                <li>Respect other users' privacy</li>
-                <li>Avoid abusing, attacking, or attempting to bypass website systems</li>
-            </ul>
+            <ul><li>Use the website responsibly</li><li>Respect other users' privacy</li><li>Avoid abusing, attacking, or attempting to bypass website systems</li></ul>
             <p>Violation of community or security rules may lead to account suspension or removal.</p>
-            
             <h2>Policy Updates</h2>
             <p>This Privacy Policy may be updated at any time. Continued use of the website after updates means acceptance of the revised policy.</p>
-            
             <h2>Contact</h2>
             <p>For questions, concerns, or privacy-related requests, please contact the community administration team through the official website contact method.</p>
-            
             <a href="#" id="backToHomeBtn" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </div>
+</div>
+
+<!-- PATRON (PREMIUM MEMBERSHIP) PAGE -->
+<div id="patron-page" style="display: none;">
+    <div class="patron-container">
+        <div class="patron-card">
+            <h1><i class="fas fa-gem"></i> Patron Membership</h1>
+            <div class="patron-icon">
+                <i class="fas fa-crown"></i>
+            </div>
+            
+            <p style="font-size: 1.1rem; margin-bottom: 20px;">✨ Unlock exclusive premium benefits by boosting the server!</p>
+            
+            <div class="patron-requirement">
+                <i class="fas fa-rocket"></i> <strong>Minimum Requirement: 2x Server Boosts</strong>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <i class="fas fa-palette"></i>
+                    <div>
+                        <h4>🎨 Custom Role</h4>
+                        <p>Create your own custom role with personalized settings</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <i class="fas fa-comment-dots"></i>
+                    <div>
+                        <h4>💬 Custom Mention Reaction</h4>
+                        <p>Get a special reaction from the server whenever you're mentioned</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <i class="fas fa-star"></i>
+                    <div>
+                        <h4>👑 Exclusive VIP Role</h4>
+                        <p>Receive a premium booster-exclusive role with priority recognition</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <i class="fas fa-door-open"></i>
+                    <div>
+                        <h4>🚪 VIP Access</span></h4>
+                        <p>Unlock access to future premium channels & features</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <i class="fas fa-chart-line"></i>
+                    <div>
+                        <h4>⚡ 2x Level Boost EXP</h4>
+                        <p>Level up faster with boosted XP rewards</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <i class="fas fa-heart"></i>
+                    <div>
+                        <h4>🌸 Priority Recognition</h4>
+                        <p>Stand out inside the community with special visibility</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <i class="fas fa-headset"></i>
+                    <div>
+                        <h4>🎧 Exclusive Booster VC</h4>
+                        <p>Access special voice channels for boosters only</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <i class="fas fa-highlighter"></i>
+                    <div>
+                        <h4>💮 Special Name Highlight</h4>
+                        <p>Get highlighted differently from normal members</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <i class="fas fa-gift"></i>
+                    <div>
+                        <h4>🎁 Future Booster Rewards</h4>
+                        <p>Upcoming events, giveaways, and premium-only perks</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="patron-note">
+                <i class="fas fa-info-circle"></i> Thank you for supporting Hanami Haven! Boost the server to unlock these amazing benefits.
+            </div>
+            
+            <div class="patron-buttons">
+                <a href="https://discord.com/invite/ck6hEuQuCq" target="_blank" class="boost-btn"><i class="fab fa-discord"></i> Boost the Server</a>
+                <a href="#" id="backToHomePatronBtn" class="back-home-patron"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            </div>
         </div>
     </div>
 </div>
@@ -1124,15 +1444,26 @@ footer{
     }
     fetchIP();
 
-    // PRIVACY POLICY REDIRECT FUNCTIONALITY
+    // PAGE REDIRECT FUNCTIONALITY
     const mainContentDiv = document.getElementById('mainContent');
     const privacyDiv = document.getElementById('privacy-policy-page');
+    const patronDiv = document.getElementById('patron-page');
     const sideNavBar = document.getElementById('sideNav');
     const toggleBtn = document.getElementById('navToggleBtn');
     
     function showPrivacyPolicy() {
         if (mainContentDiv) mainContentDiv.style.display = 'none';
+        if (patronDiv) patronDiv.style.display = 'none';
         if (privacyDiv) privacyDiv.style.display = 'block';
+        if (sideNavBar) sideNavBar.style.opacity = '0.5';
+        if (toggleBtn) toggleBtn.style.opacity = '0.7';
+        window.scrollTo(0, 0);
+    }
+    
+    function showPatronPage() {
+        if (mainContentDiv) mainContentDiv.style.display = 'none';
+        if (privacyDiv) privacyDiv.style.display = 'none';
+        if (patronDiv) patronDiv.style.display = 'block';
         if (sideNavBar) sideNavBar.style.opacity = '0.5';
         if (toggleBtn) toggleBtn.style.opacity = '0.7';
         window.scrollTo(0, 0);
@@ -1141,6 +1472,7 @@ footer{
     function showHomePage() {
         if (mainContentDiv) mainContentDiv.style.display = 'block';
         if (privacyDiv) privacyDiv.style.display = 'none';
+        if (patronDiv) patronDiv.style.display = 'none';
         if (sideNavBar) sideNavBar.style.opacity = '1';
         if (toggleBtn) toggleBtn.style.opacity = '1';
     }
@@ -1153,6 +1485,14 @@ footer{
         });
     }
     
+    const patronLink = document.getElementById('patronLink');
+    if(patronLink) {
+        patronLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showPatronPage();
+        });
+    }
+    
     const backHomeBtn = document.getElementById('backToHomeBtn');
     if(backHomeBtn) {
         backHomeBtn.addEventListener('click', (e) => {
@@ -1160,13 +1500,19 @@ footer{
             showHomePage();
         });
     }
+    
+    const backHomePatronBtn = document.getElementById('backToHomePatronBtn');
+    if(backHomePatronBtn) {
+        backHomePatronBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            showHomePage();
+        });
+    }
 
-    // CONTACT FORM SUBMIT HANDLER (with Discord Webhook)
+    // CONTACT FORM SUBMIT HANDLER
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
     const submitBtn = document.getElementById('submitBtn');
-    
-    // IMPORTANT: Replace with your actual Discord Webhook URL
     const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1505773607366692924/vWHNyl6iq_gSkTeknaE3m_4KHFdp-otXcxsUw5kmJxyWMMtFR_mXXtR9fw4shdfwacz-";
     
     async function sendToDiscord(formData) {
@@ -1174,8 +1520,6 @@ footer{
         const discordId = formData.get('discordId');
         const subject = formData.get('subject');
         const message = formData.get('message');
-        const ipAddress = document.getElementById('ipAddress')?.textContent || 'Unknown';
-        
         const embed = {
             title: "📬 New Contact Form Submission",
             color: 0xffa0d4,
@@ -1184,77 +1528,51 @@ footer{
                 { name: "🎮 Discord ID", value: discordId || "Not provided", inline: true },
                 { name: "📌 Subject", value: subject || "Not provided", inline: false },
                 { name: "💬 Message", value: message || "No message", inline: false },
-            //    { name: "🌐 IP Address", value: ipAddress, inline: true },
                 { name: "⏰ Timestamp", value: new Date().toLocaleString(), inline: true }
             ],
             footer: { text: "HANAMI HAVEN Contact System" },
             timestamp: new Date().toISOString()
         };
-        
-        const payload = {
-            username: "Hanami Haven Bot",
-            avatar_url: "https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/t1.webp",
-            embeds: [embed]
-        };
-        
+        const payload = { username: "Hanami Haven Bot", avatar_url: "https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/t1.webp", embeds: [embed] };
         try {
-            const response = await fetch(DISCORD_WEBHOOK_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
+            const response = await fetch(DISCORD_WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
             return response.ok;
-        } catch (error) {
-            console.error('Webhook error:', error);
-            return false;
-        }
+        } catch (error) { return false; }
     }
     
     if (contactForm) {
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
             const name = document.getElementById('name').value.trim();
             const discordId = document.getElementById('discordId').value.trim();
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value.trim();
-            
             if (!name || !discordId || !subject || !message) {
                 formStatus.className = 'form-status error';
                 formStatus.textContent = '❌ Please fill in all required fields.';
                 return;
             }
-            
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Sending...';
-            
             const formData = new FormData();
             formData.append('name', name);
             formData.append('discordId', discordId);
             formData.append('subject', subject);
             formData.append('message', message);
-            
             const success = await sendToDiscord(formData);
-            
             if (success) {
                 formStatus.className = 'form-status success';
                 formStatus.textContent = '✅ Message sent successfully! Our team will reach out to you soon.';
                 contactForm.reset();
             } else {
                 formStatus.className = 'form-status error';
-                formStatus.textContent = '❌ Failed to send message. Please try again later or contact us directly on Discord.';
+                formStatus.textContent = '❌ Failed to send message. Please try again later.';
             }
-            
             submitBtn.disabled = false;
             submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-            
-            setTimeout(() => {
-                formStatus.style.display = 'none';
-                formStatus.style.display = '';
-            }, 5000);
+            setTimeout(() => { formStatus.style.display = 'none'; formStatus.style.display = ''; }, 5000);
         });
     }
 </script>
-
 </body>
 </html>
