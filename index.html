@@ -1251,10 +1251,10 @@ input, textarea, select, [contenteditable="true"] {
 </div>
 
 <div class="discord-auth-box" id="discordAuthBox">
-    <a href="/auth/discord" id="loginBtn" class="discord-auth-btn">
+    <a href="https://api.hanamihaven.online/auth/discord" id="loginBtn" class="discord-auth-btn">
         <i class="fab fa-discord"></i> Login
     </a>
-    <a href="/logout" id="logoutBtn" class="discord-auth-btn logout" style="display:none;">
+    <a href="https://api.hanamihaven.online/logout" id="logoutBtn" class="discord-auth-btn logout" style="display:none;">
         <i class="fas fa-right-from-bracket"></i> Logout
     </a>
 </div>
@@ -1777,7 +1777,7 @@ document.addEventListener('keydown', function(e) {
 // DISCORD LOGIN USER AUTO-FILL + AUTO STAFF FETCH
 async function loadDiscordUser() {
     try {
-        const res = await fetch('/api/me', { credentials: 'include' });
+        const res = await fetch('https://api.hanamihaven.online/api/me', { credentials: 'include' });
         const user = await res.json();
         if (!user) return;
 
@@ -1807,7 +1807,7 @@ async function loadDiscordStaff() {
     if (!staffBox) return;
 
     try {
-        const res = await fetch('/api/staff');
+        const res = await fetch('https://api.hanamihaven.online/api/staff');
         const groups = await res.json();
 
         if (!Array.isArray(groups) || !groups.length) {
@@ -1863,7 +1863,7 @@ async function hanamiLoadDiscordUser() {
   const discordIdInput = document.getElementById("discordId");
 
   try {
-    const res = await fetch("/api/me", { credentials: "include" });
+    const res = await fetch("https://api.hanamihaven.online/api/me", { credentials: "include" });
     const user = await res.json();
 
     if (!user) {
@@ -1902,7 +1902,7 @@ async function hanamiLoadDiscordStaff() {
   if (!staffTeam) return;
 
   try {
-    const res = await fetch("/api/staff");
+    const res = await fetch("https://api.hanamihaven.online/api/staff");
     const groups = await res.json();
 
     if (!Array.isArray(groups) || groups.length === 0) return;
@@ -1949,7 +1949,7 @@ function setContactFormAccess(user){
             lockBox.innerHTML = `
                 <h3><i class="fab fa-discord"></i> Login Required</h3>
                 <p>You must login with Discord before using the contact form.</p>
-                <a href="/auth/discord"><i class="fab fa-discord"></i> Login with Discord</a>
+                <a href="https://api.hanamihaven.online/auth/discord"><i class="fab fa-discord"></i> Login with Discord</a>
             `;
             contactFormBox.prepend(lockBox);
         }
@@ -1972,7 +1972,7 @@ hanamiLoadDiscordUser = async function(){
     const discordIdInput = document.getElementById("discordId");
 
     try {
-        const res = await fetch("/api/me", { credentials: "include" });
+        const res = await fetch("https://api.hanamihaven.online/api/me", { credentials: "include" });
         const user = await res.json();
 
         setContactFormAccess(user);
