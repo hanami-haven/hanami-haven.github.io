@@ -1,55 +1,398 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>HANAMI WEBPAGE DOWN</title>
+<link rel="icon" href="favicon.svg">
+<meta name="description" content="The HANAMI website has been permanently taken offline.">
+<meta property="og:title" content="HANAMI WEBPAGE DOWN">
+<meta property="og:description" content="The HANAMI website has been permanently taken offline.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hanamihaven.online/">
+<meta property="og:image" content="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/mainbackground.webp">
+<meta name="theme-color" content="#8d58ff">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+html,
+body{
+    width:100%;
+    height:100%;
+}
 
-    <title>Hanami Haven</title>
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    color:#fff;
 
-    <meta
-      name="description"
-      content="Hanami Haven is a cozy global community for chill vibes, music, gaming, anime, and friendship."
-    />
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-    <!-- Discord / Social Embed -->
-    <meta property="og:title" content="Hanami Haven" />
-    <meta
-      property="og:description"
-      content="Join Hanami Haven — a peaceful global Discord community filled with chill vibes, music, gaming, anime, and unlimited friendship."
-    />
-    <meta
-      property="og:image"
-      content="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/mainbackground.webp"
-    />
-    <meta
-      property="og:url"
-      content="https://hanamihaven.online/"
-    />
-    <meta property="og:type" content="website" />
+    overflow-x:hidden;
+    overflow-y:auto;
 
-    <!-- Embed Theme Color -->
-    <meta name="theme-color" content="#ffa0d4" />
+    background:#090513;
 
-    <!-- Twitter / X Embed -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Hanami Haven" />
-    <meta
-      name="twitter:description"
-      content="A peaceful global Discord community filled with chill vibes, music, gaming, anime, and friendship."
-    />
-    <meta
-      name="twitter:image"
-      content="https://r2.fivemanage.com/HSm24MNN7WT5CSMTBfKPX/mainbackground.webp"
-    />
-    <script type="module" crossorigin src="/assets/index-DUuJ2VKI.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DfhZbyfV.css">
-  </head>
+    position:relative;
+}
 
-  <body>
-    <div id="root"></div>
-  </body>
+/* Background */
+
+body{
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+
+    -webkit-touch-callout:none;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-2;
+
+    background-image:url("https://r2.fivemanage.com/QZWv5PBD1vy5uduloQdo0/ChatGPTImageJul3202612_27_20PM.png");
+    background-repeat:no-repeat;
+    background-size:100%;
+    background-position:center -60px;
+}
+
+/* Soft purple glow */
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+
+    background:
+        radial-gradient(circle at top,
+        rgba(185,110,255,.10),
+        transparent 55%);
+}
+
+.wrapper{
+    width:min(980px,92%);
+    margin:auto;
+    padding:40px 0;
+
+    text-align:center;
+}
+
+/* Title */
+
+.title{
+    margin-bottom:30px;
+
+    font-size:clamp(52px,7vw,92px);
+    font-weight:900;
+    text-transform:uppercase;
+
+    background:linear-gradient(
+        #ffffff,
+        #cf9cff
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:
+        0 0 25px rgba(180,108,255,.25);
+}
+
+.line{
+    width:100%;
+    height:1px;
+
+    margin:25px 0;
+
+    background:rgba(190,120,255,.25);
+}
+
+/* Cards */
+
+.card{
+
+    display:flex;
+    align-items:center;
+    gap:28px;
+
+    text-align:left;
+
+    padding:32px;
+
+    margin:24px 0;
+
+    border-radius:22px;
+
+    background:rgba(8,6,20,.62);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(200,140,255,.22);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.40),
+        inset 0 1px 0 rgba(255,255,255,.05);
+
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+
+    border-color:#b874ff55;
+}
+
+/* Icon */
+
+.icon{
+
+    width:92px;
+    height:92px;
+
+    flex-shrink:0;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:40px;
+
+    color:#dca8ff;
+
+    background:rgba(180,108,255,.10);
+
+    border:2px solid #9d63ff;
+}
+
+/* Heading */
+
+.card h2{
+
+    font-size:32px;
+
+    margin-bottom:12px;
+
+    line-height:1.2;
+
+    color:#fff;
+}
+
+.card h2 span{
+    color:#bb7cff;
+}
+
+/* Paragraph */
+
+.card p{
+
+    color:#dddddd;
+
+    line-height:1.8;
+
+    font-size:20px;
+}
+
+/* Thank You Card */
+
+.thanks{
+
+    justify-content:center;
+
+    text-align:center;
+}
+
+.thanks h3{
+
+    font-size:20px;
+
+    letter-spacing:5px;
+
+    margin-bottom:14px;
+
+    color:#ffffff;
+}
+
+.thanks p{
+
+    font-size:22px;
+
+    color:#cf9cff;
+}
+
+/* Footer */
+
+footer{
+
+    margin-top:35px;
+
+    font-size:18px;
+
+    letter-spacing:5px;
+
+    color:#dddddd;
+}
+
+footer span{
+    color:#bb7cff;
+}
+
+/* Responsive */
+
+@media (max-width:900px){
+
+.card{
+
+    flex-direction:column;
+
+    text-align:center;
+}
+
+.card h2{
+
+    font-size:28px;
+}
+
+.card p{
+
+    font-size:18px;
+}
+
+.thanks p{
+
+    font-size:18px;
+}
+
+.title{
+
+    font-size:56px;
+}
+
+footer{
+
+    font-size:14px;
+
+    letter-spacing:3px;
+}
+
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<div class="title">Website Is Down</div>
+
+<div class="line"></div>
+
+<div class="card">
+<div class="icon">⚠</div>
+<div>
+<h2>The Hanami website is <span>permanently offline.</span></h2>
+<p>
+Thank you for being part of our community.<br>
+After careful consideration, the HANAMI website has been permanently taken offline.
+There are currently no plans to restore or replace it.
+</p>
+</div>
+</div>
+
+<div class="card thanks">
+<div>
+<h3>💜 THANK YOU FOR EVERYTHING</h3>
+<p>We truly appreciate your support, friendship and the memories we created together.</p>
+</div>
+</div>
+
+<div class="line"></div>
+
+<footer>
+MEMORIES STAY.&nbsp;&nbsp; BONDS LAST.&nbsp;&nbsp;
+<span>HANAMI FOREVER.</span>
+</footer>
+
+</div>
+</body>
 </html>
 
+<script>
+/* Disable right click */
+document.addEventListener("contextmenu", e => e.preventDefault());
 
+/* Disable text selection */
+document.addEventListener("selectstart", e => e.preventDefault());
+
+/* Disable drag */
+document.addEventListener("dragstart", e => e.preventDefault());
+
+/* Disable common DevTools shortcuts */
+document.addEventListener("keydown", function(e) {
+
+    // F12
+    if (e.key === "F12") {
+        e.preventDefault();
+        return false;
+    }
+
+    // Ctrl+Shift+I
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "i") {
+        e.preventDefault();
+        return false;
+    }
+
+    // Ctrl+Shift+J
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "j") {
+        e.preventDefault();
+        return false;
+    }
+
+    // Ctrl+Shift+C
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "c") {
+        e.preventDefault();
+        return false;
+    }
+
+    // Ctrl+U
+    if (e.ctrlKey && e.key.toLowerCase() === "u") {
+        e.preventDefault();
+        return false;
+    }
+
+    // Ctrl+S
+    if (e.ctrlKey && e.key.toLowerCase() === "s") {
+        e.preventDefault();
+        return false;
+    }
+
+    // Ctrl+P
+    if (e.ctrlKey && e.key.toLowerCase() === "p") {
+        e.preventDefault();
+        return false;
+    }
+
+    // Ctrl+A
+    if (e.ctrlKey && e.key.toLowerCase() === "a") {
+        e.preventDefault();
+        return false;
+    }
+
+    // Ctrl+C
+    if (e.ctrlKey && e.key.toLowerCase() === "c") {
+        e.preventDefault();
+        return false;
+    }
+
+});
+</script>
